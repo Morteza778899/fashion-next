@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Vazir;
+  src: url("../font/vazir-font/Vazir.eot");
+  src: url("../font/vazir-font/Vazir.eot?#iefix") format("embedded-opentype"),
+    url("../font/vazir-font/Vazir.woff") format("woff"),
+    url("../font/vazir-font/Vazir.ttf") format("truetype");
+  font-weight: normal;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mySwiper .swiper-slide {
+  opacity: 0.5;
+}
+.swiper-slide-thumb-active {
+  opacity: 1 !important;
+}
