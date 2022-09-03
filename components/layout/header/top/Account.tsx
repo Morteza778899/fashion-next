@@ -5,7 +5,6 @@ import {
   Drawer,
   IconButton,
   InputAdornment,
-  Link,
   Stack,
   TextField,
   Typography,
@@ -16,6 +15,7 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import ErrorIcon from "@mui/icons-material/Error";
 import CloseIcon from "@mui/icons-material/Close";
 import { FC } from "react";
+import Link from "next/link";
 
 interface Iprops {
   open: boolean;
@@ -35,31 +35,24 @@ const Account: FC<Iprops> = ({ open, openHandler }) => {
             "& p": {
               fontSize: "1.1rem",
             },
-            "& a": {
-              width: "fit-content",
-              color: "black",
-              my: 0.7,
-              ":hover": {
-                color: "primary.main",
-              },
-            },
-            "& a .MuiSvgIcon-root": {
-              ml: 1,
-            },
-            "& .close": {
-              cursor: "pointer",
-              mb: 4,
-              ":hover": {
-                textDecoration: "underLine",
-              },
-            },
           }}
         >
           <Stack
             direction="column"
             alignItems="flex-end"
             position="relative"
-            sx={{}}
+            sx={{
+              "& .css-1d9cypr-MuiStack-root": {
+                m: 1,
+                cursor: "pointer",
+                ":hover": {
+                  color: "primary.main",
+                },
+                "& .MuiSvgIcon-root": {
+                  mx: 1,
+                },
+              },
+            }}
           >
             <IconButton
               onClick={() => openHandler(false)}
@@ -67,20 +60,32 @@ const Account: FC<Iprops> = ({ open, openHandler }) => {
             >
               <CloseIcon />
             </IconButton>
-            <Link href="#">
-              <Stack direction="row" alignItems="center">
+            <Link href="/register">
+              <Stack
+                direction="row"
+                alignItems="center"
+                onClick={() => openHandler(false)}
+              >
                 <Typography variant="body1">ورود</Typography>
                 <LoginIcon fontSize="small" />
               </Stack>
             </Link>
-            <Link href="#">
-              <Stack direction="row" alignItems="center">
+            <Link href="/login">
+              <Stack
+                direction="row"
+                alignItems="center"
+                onClick={() => openHandler(false)}
+              >
                 <Typography variant="body1">ثبت‌نام</Typography>
                 <PermIdentityIcon fontSize="small" />
               </Stack>
             </Link>
             <Link href="#">
-              <Stack direction="row" alignItems="center">
+              <Stack
+                direction="row"
+                alignItems="center"
+                onClick={() => openHandler(false)}
+              >
                 <Typography variant="body1">پرداخت</Typography>
                 <CreditCardIcon fontSize="small" />
               </Stack>

@@ -7,6 +7,16 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: IranYekan;
+  src: url("../font/Qs_Iranyekan medium.eot"),
+    url("../font/Qs_Iranyekan medium.woff") format("woff"),
+    url("../font/Qs_Iranyekan medium.ttf") format("truetype"),
+    url("../font/Qs_Iranyekan medium.otf") format("otf"),
+    url("../font/Qs_Iranyekan medium.woff2") format("woff2");
+  font-weight: normal;
+}
+
 html,
 body {
   padding: 0;

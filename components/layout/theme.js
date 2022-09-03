@@ -14,7 +14,7 @@ const themeColor = createTheme({
     },
   },
   typography: {
-    fontFamily: "Vazir",
+    fontFamily: "IranYekan",
     allVariants: {
       direction: "rtl",
     },
@@ -22,8 +22,7 @@ const themeColor = createTheme({
       fontSize: 12,
     },
   },
-  components: {
-  },
+  components: {},
 });
 
 export const theme = createTheme(themeColor, {
@@ -61,15 +60,24 @@ export const theme = createTheme(themeColor, {
             backgroundColor: "#282828",
           },
         },
-        sizeLarge:{
-          padding: '8px 32px',
-          fontSize:'1.2rem'
-        }
+        sizeLarge: {
+          padding: "8px 32px",
+          fontSize: "1.2rem",
+        },
+        sizeMedium: {
+          padding: "6px 24px",
+          fontSize: "1rem",
+        },
       },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
+          "& label": {
+            right: 20,
+            left: "unset",
+            transformOrigin: "top right",
+          },
           "& p": {
             textAlign: "right",
           },
