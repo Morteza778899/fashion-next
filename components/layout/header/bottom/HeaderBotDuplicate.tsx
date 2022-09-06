@@ -5,6 +5,7 @@ import logo from "../../../../public/image/digikala.jpg";
 import HoverMenu from "./hoverMenu/HoverMenu";
 import { FC, useState } from "react";
 import Image from "next/image";
+import SearchMenu from "./hoverMenu/SearchMenu";
 
 interface Iprops {
   hiddenMenu: boolean;
@@ -12,20 +13,22 @@ interface Iprops {
 }
 const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
   const [hoverStatus, setHoverStatus] = useState(false);
-  const [whatHover, setWhatHover] = useState('');
-  const hoverControler = (x:boolean, y:string) => {
+  const [whatHover, setWhatHover] = useState("");
+  const [searchMenuStatus, setSearchMenuStatus] = useState(false);
+  const hoverControler = (x: boolean, y: string) => {
     setHoverStatus(x);
     setWhatHover(y);
   };
+
   return (
     <Box
       sx={{
         width: 1,
         height: 70,
         position: `${hiddenMenu ? "fixed" : "relative"}`,
-        opacity: `${hiddenMenu && isVisible || !hiddenMenu ? "1" : "0"}`,
+        opacity: `${(hiddenMenu && isVisible) || !hiddenMenu ? "1" : "0"}`,
         visibility: `${
-          hiddenMenu && isVisible || !hiddenMenu ? "visible" : "hidden"
+          (hiddenMenu && isVisible) || !hiddenMenu ? "visible" : "hidden"
         }`,
         bgcolor: "white",
         top: 0,
@@ -38,10 +41,12 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
         alignItems="center"
         sx={{ height: 1, maxWidth: 1200, mx: "auto", px: 4 }}
       >
-        <Image src={logo} width={150} height={60}/>
+        <Image src={logo} width={150} height={60} />
+
         <HeaderMiddleMenu hoverControler={hoverControler} />
+
         <Stack>
-          <IconButton color="default">
+          <IconButton color="default" onClick={() => setSearchMenuStatus(true)}>
             <SearchIcon fontSize="large" />
           </IconButton>
           <IconButton color="default">
@@ -100,6 +105,9 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
           hoverStatus={hoverStatus}
           whatHover="man"
         />
+      )}
+      {searchMenuStatus && (
+        <SearchMenu setSearchMenuStatus={setSearchMenuStatus} />
       )}
     </Box>
   );

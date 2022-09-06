@@ -1,10 +1,14 @@
-import { Box, List, ListItem, ListItemText } from "@mui/material";
-import React, { FC } from "react";
+import { Box, List, ListItem, ListItemText, Tooltip } from "@mui/material";
+import Link from "next/link";
+import React, { FC, useState } from "react";
 import { DownIcon } from "../../../icon/myIcons";
+import PagesMenu from "./hoverMenu/PagesMenu";
 interface Iprops {
   hoverControler: (x: boolean, y: string) => void;
 }
 const HeaderMiddleMenu: FC<Iprops> = ({ hoverControler }) => {
+  const [pagesMenuStatus, setPagesMenuStatus] = useState<boolean>(false);
+
   return (
     <Box sx={{ height: 1 }}>
       <List
@@ -18,7 +22,7 @@ const HeaderMiddleMenu: FC<Iprops> = ({ hoverControler }) => {
             "&:hover": {
               color: "primary.main",
               cursor: "pointer",
-              "& svg": {
+              "& .icon": {
                 transform: "rotate(180deg)",
               },
             },
@@ -29,23 +33,58 @@ const HeaderMiddleMenu: FC<Iprops> = ({ hoverControler }) => {
           onMouseOver={() => hoverControler(true, "woman")}
           onMouseLeave={() => hoverControler(false, "woman")}
         >
-          <DownIcon fontSize="small" sx={{ mt: 0.5 }} />
+          <DownIcon className="icon" fontSize="small" sx={{ mt: 0.5 }} />
           <ListItemText primary="زنانه" />
         </ListItem>
         <ListItem
           onMouseOver={() => hoverControler(true, "man")}
           onMouseLeave={() => hoverControler(false, "man")}
         >
-          <DownIcon fontSize="small" sx={{ mt: 0.5 }} />
+          <DownIcon className="icon" fontSize="small" sx={{ mt: 0.5 }} />
           <ListItemText primary="مردانه" />
         </ListItem>
-        <ListItem>
-          <DownIcon fontSize="small" sx={{ mt: 0.5 }} />
-          <ListItemText primary="صفحات" />
+        <ListItem
+          sx={{
+            "& .MuiTooltip-tooltip": {
+              mb: "-3px !important",
+              mr:-5,
+              p:0,
+              px:.5,
+              fontSize:'0.65rem',
+              bgcolor: "primary.main",
+              "& .MuiTooltip-arrow:before": {
+                bgcolor: "primary.main",
+              },
+            },
+          }}
+        >
+          <Tooltip
+            title="جشنواره"
+            placement="top"
+            arrow
+            open
+            PopperProps={{
+              disablePortal: true,
+            }}
+          >
+            <ListItemText primary="محصولات" />
+          </Tooltip>
         </ListItem>
-        <ListItem>
-          <ListItemText primary="خانه" />
+        <ListItem
+          onMouseOver={() => setPagesMenuStatus(true)}
+          onMouseLeave={() => setPagesMenuStatus(false)}
+          sx={{ position: "relative" }}
+          className="pages-menu)"
+        >
+          <DownIcon className="icon" fontSize="small" sx={{ mt: 0.5 }} />
+          <ListItemText primary="صفحات"></ListItemText>
+          {pagesMenuStatus && <PagesMenu />}
         </ListItem>
+        <Link href="/">
+          <ListItem>
+            <ListItemText primary="خانه" />
+          </ListItem>
+        </Link>
       </List>
     </Box>
   );
