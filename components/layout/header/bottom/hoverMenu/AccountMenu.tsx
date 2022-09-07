@@ -61,18 +61,26 @@ const AccountMenu = () => {
             <Typography>ثبت نام</Typography>
           </ListItemButton>
         </Link>
-        <ListItemButton>
-          <Typography>اطاعات اکانت</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>آدرس</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>تاریخچه سفارشات</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>لیست علاقه‌مندی‌ها</Typography>
-        </ListItemButton>
+        <Link href="/account/details">
+          <ListItemButton>
+            <Typography>اطاعات اکانت</Typography>
+          </ListItemButton>
+        </Link>
+        <Link href="/account/address">
+          <ListItemButton>
+            <Typography>آدرس</Typography>
+          </ListItemButton>
+        </Link>
+        <Link href="/account/wishlist">
+          <ListItemButton>
+            <Typography>لیست علاقه‌مندی‌ها</Typography>
+          </ListItemButton>
+        </Link>
+        <Link href="/account/history">
+          <ListItemButton>
+            <Typography>تاریخچه سفارشات</Typography>
+          </ListItemButton>
+        </Link>
       </List>
     </Box>
   );

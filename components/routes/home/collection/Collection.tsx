@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
 import { BarLoader } from "react-spinners";
 import { man, other, woman } from "../../../../public/info/collectionData";
@@ -23,7 +23,13 @@ const Collection: FC<Iprops> = ({ type }) => {
   };
   return (
     <Box sx={{ maxWidth: 1200, mx: "auto", my: 4 }}>
-      {type === "third" ? null : (
+      {type === "third" ? (
+        <Grid container direction="row-reverse">
+          {array.map((obj, index) => (
+            <Card item={obj} key={index} />
+          ))}
+        </Grid>
+      ) : (
         <Stack sx={{ mx: 2, alignItems: "center" }} direction="column">
           <Box sx={{ my: 3 }}>
             <Typography variant="h4" textAlign="center">
@@ -69,14 +75,14 @@ const Collection: FC<Iprops> = ({ type }) => {
           )}
           {loading ? (
             <Box sx={{ height: 465, mt: 4 }}>
-              <BarLoader color="#17c6aa" width={150}/>
+              <BarLoader color="#17c6aa" width={150} />
             </Box>
           ) : (
-            <Stack sx={{ mt: 4 }}>
+            <Grid container sx={{ mt: 4 }} direction="row-reverse">
               {array.map((obj, index) => (
                 <Card item={obj} key={index} />
               ))}
-            </Stack>
+            </Grid>
           )}
         </Stack>
       )}

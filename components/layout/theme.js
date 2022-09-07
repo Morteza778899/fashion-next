@@ -21,6 +21,9 @@ const themeColor = createTheme({
     subtitle2: {
       fontSize: 12,
     },
+    body2: {
+      opacity: 0.8,
+    },
   },
   components: {},
 });
