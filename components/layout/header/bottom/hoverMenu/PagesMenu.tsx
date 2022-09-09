@@ -109,9 +109,11 @@ const PagesMenu = () => {
         <ListItemButton>
           <Typography>گالری</Typography>
         </ListItemButton>
-        <ListItemButton>
-          <Typography>صفحه 404</Typography>
-        </ListItemButton>
+        <Link href="/404">
+          <ListItemButton>
+            <Typography>صفحه 404</Typography>
+          </ListItemButton>
+        </Link>
       </List>
     </Box>
   );
