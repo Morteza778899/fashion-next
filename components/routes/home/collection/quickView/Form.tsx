@@ -184,19 +184,17 @@ const Form: FC<Iprops> = ({
             width: 1,
             mx: 1,
             py: 1.2,
-            bgcolor: "#efefef",
-            boxShadow: "none",
-            color: "black",
-            ":hover": {
-              color: "white",
-            },
           },
         }}
       >
-        <Button variant="contained" sx={{}}>
+        <Button variant="contained" color="info">
           <Typography>تماشای اطلاعات بیشتر</Typography>
         </Button>
-        <Button variant="contained" onClick={()=>openHandler(false)}>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={() => openHandler(false)}
+        >
           <Typography>انصراف</Typography>
         </Button>
       </Stack>

@@ -12,9 +12,10 @@ interface Iprops {
     images: StaticImageData[];
     rating: number;
   };
+  status: string;
 }
 
-const ImageContainer: FC<Iprops> = ({ item }) => {
+const ImageContainer: FC<Iprops> = ({ item, status }) => {
   const [hover, setHover] = useState(false);
   const [image, setImage] = useState(item.images[0]);
   const [open, setOpen] = useState(false);
@@ -22,14 +23,21 @@ const ImageContainer: FC<Iprops> = ({ item }) => {
     setOpen(x);
   };
   return (
-    <Box sx={{ position: "relative", overflow: "hidden" }}>
+    <Box
+    className='image-container'
+      sx={{
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <Link href="#">
         <Box
           sx={{
-            width: 270,
-            height: 345,
-            transition: ".6s all",
-            ":hover": {
+            width: 1,
+            "& img": {
+              transition: ".6s all",
+            },
+            "& img:hover": {
               transform: "scale(1.08)",
             },
           }}
@@ -83,11 +91,13 @@ const ImageContainer: FC<Iprops> = ({ item }) => {
       </Stack>
       <Stack
         className="hoverImages"
-        direction="column"
-        gap={0.5}
+        gap={1}
+        justifyContent="center"
         sx={{
-          position: "absolute",
-          bottom: 5,
+          position: `${status == "vertical" ? "absolute" : "unset"}`,
+          flexDirection: `${status == "horizontal" ? "row" : "column"}`,
+          m: status == "horizontal" ? 1 : 0,
+          bottom: 15,
           left: -42,
           zIndex: 10,
           transition: ".2s all",

@@ -58,9 +58,16 @@ export const theme = createTheme(themeColor, {
       styleOverrides: {
         root: {
           color: "white",
-          width: "fit-content",
           "&:hover": {
             backgroundColor: "#282828",
+          },
+        },
+        containedInfo: {
+          backgroundColor: "#efefef",
+          boxShadow: "none",
+          color: "black",
+          ":hover": {
+            color: "white",
           },
         },
         sizeLarge: {

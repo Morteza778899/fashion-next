@@ -2,7 +2,7 @@ import { Box, Button, Grid, Rating, Stack, Typography } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { FC } from "react";
 import { TomanIcon } from "../../../icon/myIcons";
-import ImageContainer from "./ImageContainer";
+import ImageContainer from "../../home/collection/ImageContainer";
 
 interface Iprops {
   item: {
@@ -13,10 +13,11 @@ interface Iprops {
   };
 }
 
-const Card: FC<Iprops> = ({ item }) => {
+const VerticalView: FC<Iprops> = ({ item }) => {
   return (
-    <Grid item xs={3}>
+    <Grid item xs={4}>
       <Box
+        className="animate__animated animate__fadeIn"
         sx={{
           m: 1,
           my: 2,
@@ -77,4 +78,4 @@ const Card: FC<Iprops> = ({ item }) => {
     </Grid>
   );
 };
-export default Card;
+export default VerticalView;

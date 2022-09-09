@@ -1,4 +1,5 @@
 import { Box, List, ListItemButton, Typography } from "@mui/material";
+import Link from "next/link";
 
 const CategoryMenu = () => {
   return (
@@ -11,7 +12,7 @@ const CategoryMenu = () => {
         bgcolor: "white",
         width: 250,
         color: "black",
-        boxShadow:'0px 0px 10px #e9e9e9',
+        boxShadow: "0px 0px 10px #e9e9e9",
         "& ul": {
           m: 1,
           mx: 3,
@@ -50,18 +51,29 @@ const CategoryMenu = () => {
       }}
     >
       <List>
-        <ListItemButton>
-          <Typography>فیلترینگ عمودی</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>فیلترینگ افقی</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>دسته‌بندی لیستی</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>دسه‌بندی خالی</Typography>
-        </ListItemButton>
+        <Link href="/category/vertical">
+          <ListItemButton>
+            <Typography>دسته‌بندی عمودی</Typography>
+          </ListItemButton>
+        </Link>
+
+        <Link href="/category/horizontal">
+          <ListItemButton>
+            <Typography>دسته‌بندی لیستی</Typography>
+          </ListItemButton>
+        </Link>
+
+        <Link href="/category/window">
+          <ListItemButton>
+            <Typography>دسته‌بندی پنجره‌ای</Typography>
+          </ListItemButton>
+        </Link>
+
+        <Link href="/category/empty">
+          <ListItemButton>
+            <Typography>دسته‌بندی خالی</Typography>
+          </ListItemButton>
+        </Link>
       </List>
     </Box>
   );

@@ -103,23 +103,8 @@ const columns: GridColumns = [
     width: 110,
     type: "actions",
     renderCell: (params: GridRenderCellParams<Date>) => (
-      <Box
-        sx={{
-          "& button": {
-            bgcolor: "#efefef",
-            color: "black",
-            ":hover": {
-              color: "white",
-            },
-          },
-        }}
-      >
-        <Button
-          variant="contained"
-          size="small"
-          style={{ marginLeft: 16 }}
-          tabIndex={params.hasFocus ? 0 : -1}
-        >
+      <Box>
+        <Button variant="contained" size="small">
           خرید
         </Button>
       </Box>
