@@ -94,5 +94,33 @@ export const theme = createTheme(themeColor, {
         },
       },
     },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          "& label": {
+            right: 20,
+            left: "unset",
+            transformOrigin: "top right",
+          },
+          "& .MuiSelect-select": {
+            paddingRight: "12px !important",
+          },
+          "& svg": {
+            left: 8,
+            right: "unset",
+          },
+          "& .MuiFilledInput-root": {
+            ":before": {
+              borderBottom: "1px solid #80808040",
+            },
+            ":hover": {
+              ":before": {
+                borderBottom: "1px solid #80808040 !important",
+              },
+            },
+          },
+        },
+      },
+    },
   },
 });

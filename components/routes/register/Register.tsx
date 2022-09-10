@@ -20,22 +20,7 @@ const Register = () => {
         کنید.
       </Typography>
       <form>
-        <Stack
-          direction="column"
-          gap={3}
-          sx={{
-            "& .MuiFilledInput-root": {
-              ":before": {
-                borderBottom: "1px solid #80808040",
-              },
-              ":hover": {
-                ":before": {
-                  borderBottom: "1px solid #80808040 !important",
-                },
-              },
-            },
-          }}
-        >
+        <Stack direction="column" gap={3}>
           <Stack width={1} gap={3}>
             <TextField label="نام خانوداگی" variant="filled" fullWidth />
             <TextField label="نام" variant="filled" fullWidth />

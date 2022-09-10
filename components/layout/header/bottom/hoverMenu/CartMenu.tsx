@@ -1,4 +1,5 @@
 import { Box, List, ListItemButton, Typography } from "@mui/material";
+import Link from "next/link";
 
 const CartMenu = () => {
   return (
@@ -50,15 +51,21 @@ const CartMenu = () => {
       }}
     >
       <List>
-        <ListItemButton>
-          <Typography>سبد خرید</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>سبد خرید خالی</Typography>
-        </ListItemButton>
-        <ListItemButton>
-          <Typography>صفحه خرید</Typography>
-        </ListItemButton>
+        <Link href="/cart">
+          <ListItemButton>
+            <Typography>سبد خرید</Typography>
+          </ListItemButton>
+        </Link>
+        <Link href="/cart/empty">
+          <ListItemButton>
+            <Typography>سبد خرید خالی</Typography>
+          </ListItemButton>
+        </Link>
+        <Link href="/cart/checkout">
+          <ListItemButton>
+            <Typography>صفحه خرید</Typography>
+          </ListItemButton>
+        </Link>
       </List>
     </Box>
   );

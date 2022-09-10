@@ -22,23 +22,7 @@ const FormToUs = () => {
       </Typography>
       <form>
         <Stack gap={3}>
-          <Stack
-            direction="column"
-            gap={3}
-            sx={{
-              width: 1,
-              "& .MuiFilledInput-root": {
-                ":before": {
-                  borderBottom: "1px solid #80808040",
-                },
-                ":hover": {
-                  ":before": {
-                    borderBottom: "1px solid #80808040 !important",
-                  },
-                },
-              },
-            }}
-          >
+          <Stack direction="column" gap={3} sx={{ width: 1 }}>
             <Stack width={1} gap={3}>
               <TextField label="نام خانوداگی" variant="filled" fullWidth />
               <TextField label="نام" variant="filled" fullWidth />

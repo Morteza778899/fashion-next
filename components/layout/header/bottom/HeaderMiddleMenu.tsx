@@ -43,33 +43,35 @@ const HeaderMiddleMenu: FC<Iprops> = ({ hoverControler }) => {
           <DownIcon className="icon" fontSize="small" sx={{ mt: 0.5 }} />
           <ListItemText primary="مردانه" />
         </ListItem>
-        <ListItem
-          sx={{
-            "& .MuiTooltip-tooltip": {
-              mb: "-3px !important",
-              mr:-5,
-              p:0,
-              px:.5,
-              fontSize:'0.65rem',
-              bgcolor: "primary.main",
-              "& .MuiTooltip-arrow:before": {
+        <Link href='/category/vertical'>
+          <ListItem
+            sx={{
+              "& .MuiTooltip-tooltip": {
+                mb: "-3px !important",
+                mr: -5,
+                p: 0,
+                px: 0.5,
+                fontSize: "0.65rem",
                 bgcolor: "primary.main",
+                "& .MuiTooltip-arrow:before": {
+                  bgcolor: "primary.main",
+                },
               },
-            },
-          }}
-        >
-          <Tooltip
-            title="جشنواره"
-            placement="top"
-            arrow
-            open
-            PopperProps={{
-              disablePortal: true,
             }}
           >
-            <ListItemText primary="محصولات" />
-          </Tooltip>
-        </ListItem>
+            <Tooltip
+              title="جشنواره"
+              placement="top"
+              arrow
+              open
+              PopperProps={{
+                disablePortal: true,
+              }}
+            >
+              <ListItemText primary="محصولات" />
+            </Tooltip>
+          </ListItem>
+        </Link>
         <ListItem
           onMouseOver={() => setPagesMenuStatus(true)}
           onMouseLeave={() => setPagesMenuStatus(false)}

@@ -19,22 +19,7 @@ const Login = () => {
         برای استفاده از تسویه حساب سریع ما، باید وارد حساب خود شوید
       </Typography>
       <form>
-        <Stack
-          direction="column"
-          gap={3}
-          sx={{
-            "& .MuiFilledInput-root": {
-              ":before": {
-                borderBottom: "1px solid #80808040",
-              },
-              ":hover": {
-                ":before": {
-                  borderBottom: "1px solid #80808040 !important",
-                },
-              },
-            },
-          }}
-        >
+        <Stack direction="column" gap={3}>
           <TextField label="ایمیل" type="email" variant="filled" fullWidth />
           <TextField
             label="رمز عبور"
