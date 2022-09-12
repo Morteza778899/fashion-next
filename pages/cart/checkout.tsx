@@ -4,9 +4,12 @@ import Transfer from "../../components/routes/cart/checkout/Transfer";
 import Comment from "../../components/routes/cart/checkout/Comment";
 import CartSummary from "../../components/routes/cart/checkout/CartSummary";
 import Order from "../../components/routes/cart/checkout/Order";
+import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 
 const CheckoutPage = () => {
   return (
+    <>
+    <BasicBreadcrumbs routerName="/سبدخرید/پرداخت"/>
     <Box sx={{ maxWidth: 1200, mx: "auto",my:10 }}>
       <Typography variant="h4" sx={{ textAlign: "center", my: 4 }}>
         صفحه خرید
@@ -31,6 +34,7 @@ const CheckoutPage = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 export default CheckoutPage;

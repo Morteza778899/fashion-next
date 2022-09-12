@@ -60,6 +60,11 @@ const PagesMenu = () => {
       }}
     >
       <List>
+        <Link href="/product">
+          <ListItemButton>
+            <Typography>صفحه محصول</Typography>
+          </ListItemButton>
+        </Link>
         <Box
           sx={{ position: "relative" }}
           onMouseOver={() => setAccountMenuStatus(true)}

@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import CartEmptyAnime from "../../components/animation/components/CartEmptyAnime";
 import EmptyAnime from "../../components/animation/components/EmptyAnime";
+import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 import Main from "../../components/routes/cart/cartpage/main/Main";
 import Top from "../../components/routes/cart/cartpage/main/Top";
 import SideDetails from "../../components/routes/cart/cartpage/side/SideDetails";
@@ -9,6 +9,8 @@ const array = [woman[0], man[0], woman[1]];
 
 const CartEmptyPage = () => {
   return (
+    <>
+    <BasicBreadcrumbs routerName="/سبدخرید/سبد خالی"/>
     <Box sx={{ maxWidth: 1200, mx: "auto", my: 6 }}>
       <Typography variant="h4" textAlign="center" sx={{ my: 5 }}>
         سبد خرید
@@ -26,6 +28,7 @@ const CartEmptyPage = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 export default CartEmptyPage;

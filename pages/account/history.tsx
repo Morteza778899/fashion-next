@@ -1,9 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
+import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 import AsideMenu from "../../components/routes/account/AsideMenu";
 import HistoryTable from "../../components/routes/account/HistoryTable";
 
 const AccountHistoryPage = () => {
   return (
+    <>
+    <BasicBreadcrumbs routerName="/اکانت/تاریخچه سفارشات"/>
     <AsideMenu>
       <Grid item sx={{ px: 1 }} xs={9}>
         <Box>
@@ -16,6 +19,7 @@ const AccountHistoryPage = () => {
         </Box>
       </Grid>
     </AsideMenu>
+    </>
   );
 };
 export default AccountHistoryPage;

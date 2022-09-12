@@ -1,10 +1,13 @@
 import { Box, Grid, Typography } from "@mui/material";
+import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 import AsideMenu from "../../components/routes/account/AsideMenu";
 import PersonalInfo from "../../components/routes/account/PersonalInfo";
 import Collection from "../../components/routes/home/collection/Collection";
 
 const AccountDetailsPage = () => {
   return (
+    <>
+    <BasicBreadcrumbs routerName="/اکانت/لیست علاقه‌مندی‌ها"/>
     <AsideMenu>
       <Grid item sx={{ px: 1 }} xs={9}>
         <Box>
@@ -17,6 +20,7 @@ const AccountDetailsPage = () => {
         </Box>
       </Grid>
     </AsideMenu>
+    </>
   );
 };
 export default AccountDetailsPage;

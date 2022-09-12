@@ -11,6 +11,7 @@ import ItemsSort from "../../components/routes/category/items/ItemsSort";
 import { useRouter } from "next/router";
 const array = [...man, ...woman, ...other];
 import EmptyAnime from "../../components/animation/components/EmptyAnime";
+import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 
 const CategoryPage = () => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const CategoryPage = () => {
 
   useEffect(() => {
     setGrid(shape);
-  },[router]);
+  }, [router]);
 
   var fliterArray;
   if (num == array.length || num > array.length) {
@@ -31,69 +32,72 @@ const CategoryPage = () => {
   const circleFill = (fliterArray.length / array.length) * 100;
 
   return (
-    <Box sx={{ maxWidth: 1200, mx: "auto" }}>
-      <TowPic />
-      <Stack direction="row-reverse" sx={{ mb: 8 }}>
-        <Filter />
-        <Box
-          sx={{
-            width: 1,
-            "& .MuiSelect-select": {
-              pt: 1,
-              textAlign: "center",
-            },
-          }}
-        >
-          <ItemsSort grid={grid} setGrid={setGrid} />
-          {grid === "vertical" ? (
-            <Grid
-              direction="row-reverse"
-              container
-              sx={{ p: 3 }}
-              justifyContent="flex-start"
-            >
-              {fliterArray.map((obj, index) => (
-                <VerticalView item={obj} key={index} />
-              ))}
-            </Grid>
-          ) : grid === "horizontal" ? (
-            <Grid
-              direction="row-reverse"
-              container
-              sx={{ p: 5, px: 8 }}
-              gap={5}
-            >
-              {fliterArray.map((obj, index) => (
-                <HorizontalView item={obj} key={index} />
-              ))}
-            </Grid>
-          ) : grid === "window" ? (
-            <Grid
-              direction="row-reverse"
-              container
-              sx={{ p: 3 }}
-              justifyContent="flex-start"
-            >
-              {fliterArray.map((obj, index) => (
-                <WindowView item={obj} key={index} />
-              ))}
-            </Grid>
-          ) : (
-            grid === "empty" && (
-              <Stack direction="column" alignItems="center" pt={5}>
-                <EmptyAnime />
-                <Typography>
-                  متاسفانه مطابق انتخاب شما هیچ محصولی وجود ندارد
-                </Typography>
-              </Stack>
-            )
-          )}
-          {num < array.length && grid !== "empty" && (
-            <LoadMore num={num} setNum={setNum} circleFill={circleFill} />
-          )}
-        </Box>
-      </Stack>
-    </Box>
+    <>
+      <BasicBreadcrumbs routerName={`/دسته بندی/${grid === 'vertical' ? 'دسته‌بندی عمودی' : grid === 'horizontal' ? 'دسته‌بندی لیستی' : grid === 'window' ? 'دسته‌بندی پنجره‌ای' : 'دسته‌بندی خالی'}`} />
+      <Box sx={{ maxWidth: 1200, mx: "auto" }}>
+        <TowPic />
+        <Stack direction="row-reverse" sx={{ mb: 8 }}>
+          <Filter />
+          <Box
+            sx={{
+              width: 1,
+              "& .MuiSelect-select": {
+                pt: 1,
+                textAlign: "center",
+              },
+            }}
+          >
+            <ItemsSort grid={grid} setGrid={setGrid} />
+            {grid === "vertical" ? (
+              <Grid
+                direction="row-reverse"
+                container
+                sx={{ p: 3 }}
+                justifyContent="flex-start"
+              >
+                {fliterArray.map((obj, index) => (
+                  <VerticalView item={obj} key={index} />
+                ))}
+              </Grid>
+            ) : grid === "horizontal" ? (
+              <Grid
+                direction="row-reverse"
+                container
+                sx={{ p: 5, px: 8 }}
+                gap={5}
+              >
+                {fliterArray.map((obj, index) => (
+                  <HorizontalView item={obj} key={index} />
+                ))}
+              </Grid>
+            ) : grid === "window" ? (
+              <Grid
+                direction="row-reverse"
+                container
+                sx={{ p: 3 }}
+                justifyContent="flex-start"
+              >
+                {fliterArray.map((obj, index) => (
+                  <WindowView item={obj} key={index} />
+                ))}
+              </Grid>
+            ) : (
+              grid === "empty" && (
+                <Stack direction="column" alignItems="center" pt={5}>
+                  <EmptyAnime />
+                  <Typography>
+                    متاسفانه مطابق انتخاب شما هیچ محصولی وجود ندارد
+                  </Typography>
+                </Stack>
+              )
+            )}
+            {num < array.length && grid !== "empty" && (
+              <LoadMore num={num} setNum={setNum} circleFill={circleFill} />
+            )}
+          </Box>
+        </Stack>
+      </Box>
+    </>
   );
 };
 export default CategoryPage;

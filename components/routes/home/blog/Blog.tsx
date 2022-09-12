@@ -16,8 +16,8 @@ const Blog = () => {
           <Typography variant="h4">آخرین مطالب وبلاگ</Typography>
         </Link>
         <Stack gap={4}>
-          {blogPages.map((page) => (
-            <Stack direction="column" alignItems="center" gap={1}>
+          {blogPages.map((page, index) => (
+            <Stack key={index} direction="column" alignItems="center" gap={1}>
               <Link href="#" sx={{ overflow: "hidden" }}>
                 <Box
                   sx={{

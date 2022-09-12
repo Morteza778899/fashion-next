@@ -32,7 +32,7 @@ const Reviews = () => {
                                 sx={{ color: "gray", fontSize: "0.8rem" }}
                             >
                                 مرتضی داداش‌پور در May 25, 2018
-              </Typography>
+                            </Typography>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -42,7 +42,7 @@ const Reviews = () => {
                                     }
                                 }}>
                                 گزارش کامنت
-              </Typography>
+                            </Typography>
                         </Stack>
                         <Typography variant="h6">کیفیتش خوبه، بد نیست</Typography>
                         <Typography
@@ -52,7 +52,7 @@ const Reviews = () => {
                             استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله
                             در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
                             نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-              </Typography>
+                        </Typography>
 
                     </Stack>
                 ))
