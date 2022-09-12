@@ -1,7 +1,6 @@
 import {
   Box,
   IconButton,
-  Link,
   List,
   ListItem,
   Stack,
@@ -19,6 +18,7 @@ import google from "../../../public/image/google-pay.png";
 import apple from "../../../public/image/apple-pay.png";
 import visa from "../../../public/image/visa-logo-gray.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const FooterBottom = () => {
   return (
@@ -28,9 +28,10 @@ const FooterBottom = () => {
         mx: "auto",
         my: 6,
         mt: 10,
-        "& a": {
-          color: "black",
-          ":hover": { color: "primary.main" },
+        "& li p": {
+          cursor: "pointer",
+          transition: ".3s all",
+          ":hover": { color: "primary.dark", letterSpacing: 1 },
         },
         "& li": {
           justifyContent: "right",
@@ -64,27 +65,27 @@ const FooterBottom = () => {
           </Typography>
           <List>
             <ListItem>
-              <Link href="#">
+              <Link href="/account/details">
                 <Typography variant="body2">حساب من</Typography>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="#">
+              <Link href="/cart">
                 <Typography variant="body2">مشاهده سبد خرید</Typography>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="#">
+              <Link href="/account/wishlist">
                 <Typography variant="body2">لیست علاقه‌مندی‌ها</Typography>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="#">
+              <Link href="/account/history">
                 <Typography variant="body2">وضعیت سفارش</Typography>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="#">
+              <Link href="/account/history">
                 <Typography variant="body2">پیگیری سفارش</Typography>
               </Link>
             </ListItem>
@@ -97,12 +98,12 @@ const FooterBottom = () => {
           </Typography>
           <List>
             <ListItem>
-              <Link href="#">
+              <Link href="/about-us">
                 <Typography variant="body2">درباره ما</Typography>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="#">
+              <Link href="/contact-us">
                 <Typography variant="body2">ارتباط با ما</Typography>
               </Link>
             </ListItem>
