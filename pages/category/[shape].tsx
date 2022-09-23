@@ -16,10 +16,10 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Iprops {
-  shape:string
+  shape: string
 }
 
-const CategoryPage:FC<Iprops> = ({ shape }) => {
+const CategoryPage: FC<Iprops> = ({ shape }) => {
   const router = useRouter();
   // const { shape } = router.query;
   const [grid, setGrid] = useState(shape);
@@ -124,23 +124,12 @@ interface Params extends ParsedUrlQuery {
   shape: string,
 }
 
-export const getStaticProps:GetStaticProps<Params>=async (context)=> {
+export const getStaticProps: GetStaticProps<Params> = async (context) => {
   const { shape } = context.params as Params
-  if (shape !== 'vertical' && shape !== 'horizontal' && shape !== 'window' && shape !== 'empty') {
-    return {
-      redirect: {
-        destination: "/404",
-        permanent: true,
-      },
-    }
-    // getStaticProps is not a middleware before rendering the page.
-    // So, at the first moment, the current page is shown and then it is redirected to 404
-  } else {
-    return {
-      props: {
-        shape,
-      },
-    };
-  }
+  return {
+    props: {
+      shape,
+    },
+  };
 }
 export default CategoryPage;

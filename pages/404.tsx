@@ -1,7 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Anime404 from "../components/animation/components/Anime404";
-import BasicBreadcrumbs from "../components/layout/BasicBreadcrumbs";
 
 const Custom404Page = () => {
   const router = useRouter();
@@ -10,7 +10,9 @@ const Custom404Page = () => {
   };
   return (
     <>
-    <BasicBreadcrumbs routerName="/صفحه‌ 404"/>
+    <Head>
+      <title>صفحه 404</title>
+    </Head>
     <Stack direction="column" sx={{ alignItems: "center", my: 8 }}>
       <Anime404 />
       <Typography variant="h5">صفحه مورد نظر پیدا نشد</Typography>
