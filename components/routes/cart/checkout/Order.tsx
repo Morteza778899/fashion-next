@@ -1,5 +1,4 @@
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
-import Image from "next/image";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import { TomanIcon } from "../../../icon/myIcons";
 import { man, woman } from "../../../../public/info/collectionData";
 const array = [woman[0], man[0]];
@@ -38,7 +37,7 @@ const Order = () => {
       </Stack>
       <Stack justifyContent="space-between" px={2}>
         <Stack gap={1}>
-          <Typography variant="h6">390'000</Typography>
+          <Typography variant="h6">{`390'000`}</Typography>
           <TomanIcon fontSize="large" sx={{ mt: 0.5 }} />
         </Stack>
         <Typography variant="h6">مجموع</Typography>

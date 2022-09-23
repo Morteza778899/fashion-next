@@ -1,4 +1,4 @@
-import { Button, Divider, Grid, Rating, Stack, Typography } from "@mui/material"
+import { Divider, Rating, Stack, Typography } from "@mui/material"
 const array = [1, 2, 3, 4]
 const Reviews = () => {
     return (
@@ -9,8 +9,8 @@ const Reviews = () => {
             gap={3}
         >
             {
-                array.map(() => (
-                    <Stack
+                array.map((item, index) => (
+                    <Stack key={index}
                         direction="column"
                         gap={1}
                     >

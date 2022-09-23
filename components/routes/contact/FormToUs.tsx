@@ -1,6 +1,5 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import GoogleMapReact from "google-map-react";
-import { FC } from "react";
 
 const FormToUs = () => {
   const defaultProps = {

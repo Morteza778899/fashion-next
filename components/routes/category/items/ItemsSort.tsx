@@ -13,7 +13,7 @@ import TableRowsIcon from "@mui/icons-material/TableRows";
 import WindowIcon from "@mui/icons-material/Window";
 
 interface Iprops {
-  setGrid: Dispatch<SetStateAction<string | string[] | undefined>>;
+  setGrid: Dispatch<SetStateAction<string>>;
   grid: string | string[] | undefined;
 }
 

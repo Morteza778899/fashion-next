@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Box, Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Paper, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from "@mui/material"
 
 function createData(
     name: string,
@@ -45,8 +45,8 @@ const Size = () => {
                             <StyledTableCell sx={{ fontWeight: 900 }} component="th" scope="row">
                                 {row.name}
                             </StyledTableCell>
-                            {row.value.map((num) => (
-                                <StyledTableCell align="center">{num}</StyledTableCell>
+                            {row.value.map((num,index) => (
+                                <StyledTableCell key={index} align="center">{num}</StyledTableCell>
                             ))}
                         </StyledTableRow>
                     ))}

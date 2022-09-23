@@ -51,7 +51,7 @@ const Main: FC<Iprops> = ({ item }) => {
         <Stack justifyContent="center">
           <TomanIcon fontSize="large" sx={{ mt: 0.5, mr: -1 }} />
           <Typography variant="h6" sx={{ direction: "ltr" }}>
-            {Number(item.price.split("'")[0]) * count}'000
+            {`${Number(item.price.split("'")[0]) * count}'000`}
           </Typography>
         </Stack>
       </Grid>

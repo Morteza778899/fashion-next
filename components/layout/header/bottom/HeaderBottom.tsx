@@ -6,16 +6,16 @@ const HeaderBottom = () => {
 
 
   const [isVisible, setVisible] = useState(false);
-  function onChange(e: Event) {
-    if (e.target!.scrollingElement.scrollTop > 300) {
+  function onChange() {
+    if (document.scrollingElement!.scrollTop > 300) {
       setVisible(true);
     } else {
       setVisible(false);
     }
   }
   useEffect(() => {
-    document.addEventListener("scroll", (e) => {
-      onChange(e);
+    document.addEventListener("scroll", () => {
+      onChange();
     });
   }, []);
 

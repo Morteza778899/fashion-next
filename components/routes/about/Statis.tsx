@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
-import { useCountUp } from "react-countup";
 import { useState } from "react";
 
 const Statis = () => {

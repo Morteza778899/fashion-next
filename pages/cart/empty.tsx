@@ -1,7 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import EmptyAnime from "../../components/animation/components/EmptyAnime";
 import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
-import Main from "../../components/routes/cart/cartpage/main/Main";
 import Top from "../../components/routes/cart/cartpage/main/Top";
 import SideDetails from "../../components/routes/cart/cartpage/side/SideDetails";
 import { man, woman } from "../../public/info/collectionData";

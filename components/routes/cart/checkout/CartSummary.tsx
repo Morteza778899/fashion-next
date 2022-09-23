@@ -33,8 +33,9 @@ const CartSummary = () => {
         </Grid>
       </Grid>
 
-      {array.map((item) => (
+      {array.map((item, index) => (
         <Grid
+          key={index}
           container
           sx={{
             textAlign: "center",

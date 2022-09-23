@@ -33,8 +33,8 @@ const BasicBreadcrumbs: FC<Iprops> = ({ routerName }) => {
           خانه
         </Link>
         {
-          array.map((route) => (
-            <Link color="inherit" href={route.pathName} >
+          array.map((route,index) => (
+            <Link key={index} color="inherit" href={route.pathName} >
               {route.name}
             </Link>
           ))

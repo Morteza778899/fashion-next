@@ -1,8 +1,8 @@
-import { Box, CircularProgress, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { man, woman, other } from "../../public/info/collectionData";
 import HorizontalView from "../../components/routes/category/items/HorizontalView";
 import VerticalView from "../../components/routes/category/items/VerticalView";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import WindowView from "../../components/routes/category/items/WindowView";
 import LoadMore from "../../components/routes/category/items/LoadMore";
 import TowPic from "../../components/routes/category/TwoPic";
@@ -12,10 +12,16 @@ import { useRouter } from "next/router";
 const array = [...man, ...woman, ...other];
 import EmptyAnime from "../../components/animation/components/EmptyAnime";
 import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
+import { GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
-const CategoryPage = () => {
+interface Iprops {
+  shape:string
+}
+
+const CategoryPage:FC<Iprops> = ({ shape }) => {
   const router = useRouter();
-  const { shape } = router.query;
+  // const { shape } = router.query;
   const [grid, setGrid] = useState(shape);
   const [num, setNum] = useState(4);
 
@@ -100,4 +106,41 @@ const CategoryPage = () => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const paths = [
+    { params: { shape: 'vertical' } },
+    { params: { shape: 'horizontal' } },
+    { params: { shape: 'window' } },
+    { params: { shape: 'empty' } },
+  ]
+  return {
+    paths,
+    fallback: true,
+  }
+}
+
+interface Params extends ParsedUrlQuery {
+  shape: string,
+}
+
+export const getStaticProps:GetStaticProps<Params>=async (context)=> {
+  const { shape } = context.params as Params
+  if (shape !== 'vertical' && shape !== 'horizontal' && shape !== 'window' && shape !== 'empty') {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: true,
+      },
+    }
+    // getStaticProps is not a middleware before rendering the page.
+    // So, at the first moment, the current page is shown and then it is redirected to 404
+  } else {
+    return {
+      props: {
+        shape,
+      },
+    };
+  }
+}
 export default CategoryPage;

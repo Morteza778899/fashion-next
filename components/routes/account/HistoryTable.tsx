@@ -83,8 +83,8 @@ const columns: GridColumns = [
             params.value == "ارسال شده"
               ? "success"
               : params.value == "در انتظار پرداخت"
-              ? "info"
-              : "error"
+                ? "info"
+                : "error"
           }
         />
       </Box>
@@ -116,9 +116,10 @@ const columns: GridColumns = [
     headerName: "حذف",
     getActions: (params) => [
       <GridActionsCellItem
+        key={params.id}
         icon={<DeleteIcon />}
         label="Delete"
-        //   onClick={deleteUser(params.id)}
+      //   onClick={deleteUser(params.id)}
       />,
     ],
   },

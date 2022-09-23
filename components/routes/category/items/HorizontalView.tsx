@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Grid,
   IconButton,
@@ -7,7 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import React, { FC, useState } from "react";
 import { TomanIcon } from "../../../icon/myIcons";
 import ImageContainer from "../../home/collection/ImageContainer";

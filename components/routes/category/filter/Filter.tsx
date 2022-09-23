@@ -1,4 +1,4 @@
-import { Box, Divider, Popper, Stack } from "@mui/material";
+import { Box, Divider, Stack } from "@mui/material";
 import AccordionLayout from "./AccordionLayout";
 import Brand from "./Brand";
 import Categories from "./Categories";

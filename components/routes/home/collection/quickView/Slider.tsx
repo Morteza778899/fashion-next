@@ -27,8 +27,8 @@ const Slider: FC<Iprops> = ({ allImage, slidesPerView }) => {
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
       >
-        {allImage.map((imgae) => (
-          <SwiperSlide>
+        {allImage.map((imgae,index) => (
+          <SwiperSlide key={index}>
             {slidesPerView === 1 && (
               <>
                 <IconButton
@@ -65,9 +65,9 @@ const Slider: FC<Iprops> = ({ allImage, slidesPerView }) => {
         modules={[FreeMode, Thumbs]}
         className="mySwiper"
       >
-        {allImage.map((imgae) => (
+        {allImage.map((imgae,index) => (
           // style for active thumb slide there is globals.css
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <Box
               sx={{
                 width: 1,
