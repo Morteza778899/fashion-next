@@ -7,12 +7,19 @@ import "swiper/scss/effect-fade"; // effect-fade module
 // import '../public/styles/iconStyle.css'
 import type { AppProps } from 'next/app'
 import Layout from '../components/layout/Layout'
+import { wrapper } from '../redux/store';
+import { Provider } from 'react-redux';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, ...rest }: AppProps) {
+  // if you are in react, you dont need to use wrapper. you can just use provider tag 
+  // this is for nextjs
+  const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...props.pageProps} />
+      </Layout>
+    </Provider>
   )
 }
 
