@@ -8,7 +8,7 @@ import image6 from "../../../public/image/product-06.webp";
 import image7 from "../../../public/image/product-07.webp";
 import image8 from "../../../public/image/product-08.webp";
 import image9 from "../../../public/image/product-09.webp";
-import { useState } from "react";
+import { FC, useState } from "react";
 import Slider from "../home/collection/quickView/Slider";
 import { woman } from "../../../public/info/collectionData";
 import Details from "./main/Details";
@@ -16,19 +16,28 @@ import Info from "./main/Info";
 import Form from "./main/Form";
 import Modals from "./main/Modals";
 import Title from "./main/Title";
-const item = woman[0];
 const biegeImages = [image1, image2, image3];
 const blackImages = [image4, image5, image6];
 const redImages = [image7, image8, image9];
 const allImage = [...biegeImages, ...blackImages, ...redImages];
 
-const Main = () => {
+interface Iprops {
+  singleProduct: {
+    title: string,
+    gender: string,
+    price: string,
+    images: string[],
+    rating: number,
+  }
+}
+
+const Main:FC<Iprops> = ({singleProduct}) => {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("biege");
 
   return (
     <>
-      <Title item={item} />
+      <Title singleProduct={singleProduct} />
       <Grid container>
         <Grid item xs={7}>
           <Box sx={{ m: 2 }}>

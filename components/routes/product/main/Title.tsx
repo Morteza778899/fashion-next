@@ -3,15 +3,16 @@ import { StaticImageData } from "next/image";
 import { FC } from "react";
 
 interface Iprops {
-  item: {
-    title: string;
-    price: string;
-    images: StaticImageData[];
-    rating: number;
-  };
+  singleProduct: {
+    title: string,
+    gender: string,
+    price: string,
+    images: string[],
+    rating: number,
+  }
 }
 
-const Title: FC<Iprops> = ({ item }) => {
+const Title: FC<Iprops> = ({ singleProduct }) => {
   return (
     <>
       <Stack
@@ -33,7 +34,7 @@ const Title: FC<Iprops> = ({ item }) => {
         <Rating
           name="half-rating"
           readOnly
-          defaultValue={item.rating}
+          defaultValue={singleProduct.rating}
           precision={0.5}
           sx={{
             "& label": {
@@ -43,7 +44,7 @@ const Title: FC<Iprops> = ({ item }) => {
         />
         <Typography variant="body2">( 17دیدگاه )</Typography>
       </Stack>
-      <Typography variant="h4" mx={2}>{item.title}</Typography>
+      <Typography variant="h4" mx={2}>{singleProduct.title}</Typography>
     </>
   );
 };

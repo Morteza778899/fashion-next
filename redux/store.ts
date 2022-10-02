@@ -2,13 +2,16 @@ import { getProduct } from './features/product/action';
 import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "./features/product/productSlice";
 import { createWrapper } from 'next-redux-wrapper';
+import singleProductSlice from './features/singleProduct/singleProductSlice';
 
 const store = configureStore({
     reducer: {
-        allProduct: productSlice
+        allProduct: productSlice,
+        singleProduct : singleProductSlice,
     }
 })
 store.dispatch(getProduct())
+
 // this is for nextjs.
 // in react, you can just export store
 const makeStore = () => store;

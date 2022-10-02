@@ -9,10 +9,6 @@ const nextConfig = {
         destination: '/category/empty',
         permanent: true,
       },
-    ]
-  },
-  async redirects() {
-    return [
       {
         source: '/account',
         destination: '/account/details',
