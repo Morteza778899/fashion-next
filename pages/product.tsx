@@ -33,7 +33,7 @@ const ProductPage: FC<Iprops> = ({ singleProduct }) => {
 // export const getServerSideProps = wrapper.getServerSideProps(
 //   (store) =>
 //     async ({ params }) => {
-      // await store.dispatch(getSingleProduct());
+// await store.dispatch(getSingleProduct());
 //       const singleProduct = store.getState().singleProduct;
 //       if (singleProduct.error.status) {
 //         return {
@@ -52,11 +52,17 @@ const ProductPage: FC<Iprops> = ({ singleProduct }) => {
 //     }
 // );
 
-export const getServerSideProps =async () => {
-  const {data} =await axios.get('https://api.npoint.io/d08c4cfbcded5228dd52')
-const singleProduct = data[0]
+export const getServerSideProps = async () => {
+  // const { data } = await axios.get('https://api.npoint.io/d08c4cfbcded5228dd52')
+  const singleProduct = {
+    title: "شلوار چرمی",
+    gender: "women",
+    price: "195'000",
+    images: ['https://uupload.ir/view/product-01-1_ck2h.webp/', 'https://uupload.ir/view/product-01-2_vyim.webp/', 'https://uupload.ir/view/product-01-3_svxy.webp/'],
+    rating: 5,
+  }
   return {
-    props:{
+    props: {
       singleProduct
     }
   }
