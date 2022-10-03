@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import axios from "axios";
 import { FC } from "react";
 import BasicBreadcrumbs from "../components/layout/BasicBreadcrumbs";
 import Main from "../components/routes/product/Main";
@@ -29,26 +30,35 @@ const ProductPage: FC<Iprops> = ({ singleProduct }) => {
   );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      await store.dispatch(getSingleProduct());
-      const singleProduct = store.getState().singleProduct;
-      if (singleProduct.error.status) {
-        return {
-          redirect: {
-            destination: '/404',
-            permanent: false,
-          },
-        };
-      } else {
-        return {
-          props: {
-            singleProduct: singleProduct.value
-          },
-        };
-      }
-    }
-);
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async ({ params }) => {
+      // await store.dispatch(getSingleProduct());
+//       const singleProduct = store.getState().singleProduct;
+//       if (singleProduct.error.status) {
+//         return {
+//           redirect: {
+//             destination: '/404',
+//             permanent: false,
+//           },
+//         };
+//       } else {
+//         return {
+//           props: {
+//             singleProduct: singleProduct.value
+//           },
+//         };
+//       }
+//     }
+// );
 
+export const getServerSideProps =async () => {
+  const {data} =await axios.get('https://api.npoint.io/d08c4cfbcded5228dd52')
+const singleProduct = data[0]
+  return {
+    props:{
+      singleProduct
+    }
+  }
+}
 export default ProductPage;
