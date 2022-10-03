@@ -26,23 +26,23 @@ const Layout: FC<Iprops> = ({ children }) => {
   },[allProduct])
 
   // loading for page routing
-  // const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   const start = () => {
-  //     setLoading(true);
-  //   };
-  //   const end = () => {
-  //     setLoading(false);
-  //   };
-  //   Router.events.on("routeChangeStart", start);
-  //   Router.events.on("routeChangeComplete", end);
-  //   Router.events.on("routeChangeError", end);
-  //   return () => {
-  //     Router.events.off("routeChangeStart", start);
-  //     Router.events.off("routeChangeComplete", end);
-  //     Router.events.off("routeChangeError", end);
-  //   };
-  // }, [])
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const start = () => {
+      setLoading(true);
+    };
+    const end = () => {
+      setLoading(false);
+    };
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", end);
+    Router.events.on("routeChangeError", end);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", end);
+      Router.events.off("routeChangeError", end);
+    };
+  }, [])
 
   return (
     allProduct.loading ? (
@@ -54,13 +54,13 @@ const Layout: FC<Iprops> = ({ children }) => {
         <Box sx={{ minHeight: '100vh' }}>
           <HeaderTop />
           <HeaderBottom />
-          {/* {loading ? (
+          {loading ? (
             <Stack justifyContent={'center'} alignItems={'center'} sx={{ width: 1, height: '80vh' }}>
               <BeatLoader />
             </Stack>
-          ) : */}
-            {children}
-          {/* } */}
+          ) :
+            children
+          }
           <Footer />
         </Box>
         <ToastContainer
