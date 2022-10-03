@@ -17,8 +17,15 @@ interface Iprops {
   }
 }
 
-const ProductPage: FC<Iprops> = ({ singleProduct }) => {
-  console.log(singleProduct)
+const ProductPage: FC<Iprops> = () => {
+  // console.log(singleProduct)
+    const singleProduct = {
+    title: "شلوار چرمی",
+    gender: "women",
+    price: "195'000",
+    images: ['https://uupload.ir/view/product-01-1_ck2h.webp/', 'https://uupload.ir/view/product-01-2_vyim.webp/', 'https://uupload.ir/view/product-01-3_svxy.webp/'],
+    rating: 5,
+  }
   return (
     <>
       <BasicBreadcrumbs routerName="/صفحه محصول" />
@@ -52,19 +59,19 @@ const ProductPage: FC<Iprops> = ({ singleProduct }) => {
 //     }
 // );
 
-export const getServerSideProps = async () => {
-  // const { data } = await axios.get('https://api.npoint.io/d08c4cfbcded5228dd52')
-  const singleProduct = {
-    title: "شلوار چرمی",
-    gender: "women",
-    price: "195'000",
-    images: ['https://uupload.ir/view/product-01-1_ck2h.webp/', 'https://uupload.ir/view/product-01-2_vyim.webp/', 'https://uupload.ir/view/product-01-3_svxy.webp/'],
-    rating: 5,
-  }
-  return {
-    props: {
-      singleProduct
-    }
-  }
-}
+// export const getServerSideProps = async () => {
+//   // const { data } = await axios.get('https://api.npoint.io/d08c4cfbcded5228dd52')
+//   const singleProduct = {
+//     title: "شلوار چرمی",
+//     gender: "women",
+//     price: "195'000",
+//     images: ['https://uupload.ir/view/product-01-1_ck2h.webp/', 'https://uupload.ir/view/product-01-2_vyim.webp/', 'https://uupload.ir/view/product-01-3_svxy.webp/'],
+//     rating: 5,
+//   }
+//   return {
+//     props: {
+//       singleProduct
+//     }
+//   }
+// }
 export default ProductPage;
