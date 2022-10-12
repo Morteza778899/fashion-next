@@ -3,11 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "./features/product/productSlice";
 import { createWrapper } from 'next-redux-wrapper';
 import singleProductSlice from './features/singleProduct/singleProductSlice';
+import footerVisibilitySlice from './features/footerVisibility/footerVisibilitySlice';
 
 const store = configureStore({
     reducer: {
         allProduct: productSlice,
         singleProduct : singleProductSlice,
+        footerVisibility:footerVisibilitySlice
     }
 })
 store.dispatch(getProduct())

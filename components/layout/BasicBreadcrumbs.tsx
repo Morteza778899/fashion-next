@@ -28,12 +28,12 @@ const BasicBreadcrumbs: FC<Iprops> = ({ routerName }) => {
 
   return (
     <Box role="presentation" sx={{ bgcolor: '#f9f9f9', p: 1, mt: 1 }}>
-      <Breadcrumbs aria-label="breadcrumb" sx={{ maxWidth: 1100, mx: 'auto' }}>
+      <Breadcrumbs aria-label="breadcrumb" sx={{ maxWidth: 1100, mx: { xs: 4, lg: 'auto' } }}>
         <Link color="inherit" href="/">
           خانه
         </Link>
         {
-          array.map((route,index) => (
+          array.map((route, index) => (
             <Link key={index} color="inherit" href={route.pathName} >
               {route.name}
             </Link>

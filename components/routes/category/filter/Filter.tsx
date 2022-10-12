@@ -1,56 +1,60 @@
-import { Box, Divider, Stack } from "@mui/material";
-import AccordionLayout from "./AccordionLayout";
-import Brand from "./Brand";
-import Categories from "./Categories";
-import Colors from "./Colors";
-import FilterTop from "./FilterTop";
-import Price from "./Price";
-import Size from "./Size";
+import { Box, ClickAwayListener, Drawer, Fade, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Stack } from "@mui/system";
+import { useState } from "react";
+import FilterContent from "./FilterContent";
+import CancelIcon from '@mui/icons-material/Cancel';
+import SortIcon from '@mui/icons-material/Sort';
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../redux/store";
 
 const Filter = () => {
+  const [open, setOpen] = useState(false)
+  const mdWidth = useMediaQuery('(min-width:900px)')
+  const footerVisibility = useSelector((state: RootState) => state.footerVisibility.value)
   return (
-    <Box sx={{ width: 290, position: "relative" }}>
-      <Box sx={{ position: "sticky", top: 80, mb: 20 }}>
-        <FilterTop />
-        <Stack
-          direction="column"
-          divider={<Divider orientation="horizontal" flexItem />}
-          sx={{
-            my: 3,
-            "& span": {
-              fontSize: "0.8rem !important",
-            },
-            "& .MuiCheckbox-root ": {
-              px: 0,
-              pl: 1,
-              py: 0.5,
-            },
-            "& .MuiFormControlLabel-root": {
-              m: 0,
-            },
-            "& .MuiAccordionDetails-root": {
-              p: 0,
-            },
-          }}
-        >
-          <AccordionLayout title="دسته بندی" firstOpen={true}>
-            <Categories />
-          </AccordionLayout>
-          <AccordionLayout title="رنگ ها" firstOpen={false}>
-            <Colors />
-          </AccordionLayout>
-          <AccordionLayout title="سایز" firstOpen={false}>
-            <Size />
-          </AccordionLayout>
-          <AccordionLayout title="برند" firstOpen={false}>
-            <Brand />
-          </AccordionLayout>
-          <AccordionLayout title="قیمت" firstOpen={false}>
-            <Price />
-          </AccordionLayout>
-        </Stack>
-      </Box>
-    </Box>
+    <Grid item xs={12} lg={3}>
+      {mdWidth ? (
+        <FilterContent />
+      ) : (
+        <>
+          <Fade timeout={500} in={!footerVisibility}>
+            <Box sx={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              width: 1,
+              bgcolor: 'primary.main',
+              cursor: 'pointer',
+              zIndex: 10000
+            }}>
+              {open ? (
+                <Stack >
+                  <Stack flexGrow={1} onClick={() => setOpen(false)} alignItems='center' justifyContent='center'
+                    sx={{ bgcolor: '#efefef', cursor: 'pointer' }}>
+                    <CancelIcon />
+                    <Typography variant="h6" textAlign='center' my={1.5}>انصراف</Typography>
+                  </Stack>
+                  <Stack flexGrow={1} onClick={() => setOpen(false)} alignItems='center' justifyContent='center'
+                    sx={{ bgcolor: 'primary.main', cursor: 'pointer', color: 'white' }}>
+                    <SortIcon color="inherit" />
+                    <Typography variant="h6" textAlign='center' my={1.5}>مرتب سازی</Typography>
+                  </Stack>
+                </Stack>
+              ) : (
+                <Typography variant="h6" onClick={() => setOpen(true)}
+                  sx={{ textAlign: 'center', m: 1.5, color: 'white' }} >فیلتر و مرتب سازی</Typography>
+              )}
+            </Box>
+          </Fade>
+
+          <Drawer anchor="bottom" open={open} sx={{ zIndex: 2000 }}>
+            <Box sx={{ p: { xs: 2, sm: 3 }, minHeight: '100vh' }}>
+              <FilterContent />
+            </Box>
+          </Drawer>
+        </>
+      )}
+    </Grid>
   );
 };
 export default Filter;

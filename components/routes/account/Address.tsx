@@ -9,12 +9,12 @@ interface Iprops {
 
 const Address: FC<Iprops> = ({ title }) => {
   return (
-    <Grid item xs={6} sx={{ px: 3, py: 1 }}>
+    <Grid item xs={12} md={6} sx={{ px: { xs: 1, sm: 3 }, py: 1 }}>
       <Box
         sx={{
           bgcolor: "whitesmoke",
           "& .MuiTypography-body2": {
-            mx: 1,
+            mx: { xs: 0, sm: 1 },
           },
           "& > div": {
             alignItems: "center",
@@ -26,8 +26,8 @@ const Address: FC<Iprops> = ({ title }) => {
         <Typography variant="h6" sx={{ pb: 2 }}>{title}</Typography>
         <Typography variant="body2">ایران - تهران - بلوار فلانی</Typography>
         <Typography variant="body2">میدان فلان - ساختمان فلان</Typography>
-        <Typography variant="body2">نرسیده به فلا جا و پلاک 200</Typography>
-        <Stack justifyContent="space-between">
+        <Typography variant="body2">نرسیده به فلان جا و پلاک 200</Typography>
+        <Stack justifyContent="space-between" sx={{flexDirection:{xs:'column',md:'row'}}}>
           <Stack
             sx={{
               mt: 2,

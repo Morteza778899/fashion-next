@@ -13,8 +13,9 @@ const Counter: FC<Iprops> = ({ count, setCount }) => {
     <Stack
       gap={1}
       alignItems="center"
-      justifyContent="center"
       sx={{
+        justifyContent:{xs:'flex-end',sm:'center'},
+        px:2,
         "& button": {
           height: "fit-content",
           bgcolor: "whitesmoke",
@@ -27,7 +28,7 @@ const Counter: FC<Iprops> = ({ count, setCount }) => {
       <IconButton size="small" onClick={() => count > 1 && setCount(count - 1)}>
         <RemoveIcon fontSize="small" />
       </IconButton>
-      <Typography sx={{ p: 1, px: 2, bgcolor: "whitesmoke", borderRadius: 2 }}>
+      <Typography sx={{ p: {xs:.5,sm:1}, px: {xs:1,sm:2}, bgcolor: "whitesmoke", borderRadius: 2 }}>
         {count}
       </Typography>
       <IconButton size="small" onClick={() => count < 9 && setCount(count + 1)}>

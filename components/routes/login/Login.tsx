@@ -19,7 +19,7 @@ const Login = () => {
         برای استفاده از تسویه حساب سریع ما، باید وارد حساب خود شوید
       </Typography>
       <form>
-        <Stack direction="column" gap={3}>
+        <Stack direction="column" gap={3} sx={{ mx: 4 }}>
           <TextField label="ایمیل" type="email" variant="filled" fullWidth />
           <TextField
             label="رمز عبور"

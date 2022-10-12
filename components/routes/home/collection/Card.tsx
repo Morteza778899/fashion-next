@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Rating, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Rating, Stack, Typography, useMediaQuery } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { FC } from "react";
 import { TomanIcon } from "../../../icon/myIcons";
@@ -14,22 +14,29 @@ interface Iprops {
 }
 
 const Card: FC<Iprops> = ({ item }) => {
+  const mdWidth = useMediaQuery('(min-width:900px)')
   return (
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={3} >
       <Box
         sx={{
           m: 1,
           my: 2,
           ":hover": {
             "& .move": {
-              transform: "translateY(-45px)",
+              transform: `${mdWidth ? 'translateY(-45px)' : 'unset'}`,
             },
             "& .hoverIcon": {
-              transform: "translateX(-50px)",
+              transform: 'translateX(-50px)',
             },
             "& .hoverImages": {
-              transform: "translateX(50px)",
+              transform: 'translateX(50px)',
             },
+          },
+          "& .hoverIcon": {
+            transform: `${!mdWidth ? 'translateX(-50px)' : 'unset'}`,
+          },
+          "& .hoverImages": {
+            transform: `${!mdWidth ? 'translateX(50px)' : 'unset'}`,
           },
         }}
       >
@@ -49,7 +56,7 @@ const Card: FC<Iprops> = ({ item }) => {
           <Typography variant="h6">{item.title}</Typography>
           <Box
             sx={{
-              height: 40,
+              height: { xs: 80, md: 40 },
               overflow: "hidden",
             }}
           >
@@ -58,7 +65,7 @@ const Card: FC<Iprops> = ({ item }) => {
               alignItems="center"
               className="move"
               sx={{
-                "& p": { height: 37, direction: "ltr", mb: 1 },
+                "& p": { height: { xs: 22, md: 37 }, direction: "ltr", mb: 1 },
                 "& .MuiButton-root": {
                   height: 37,
                 },
@@ -67,7 +74,7 @@ const Card: FC<Iprops> = ({ item }) => {
             >
               <Typography variant="body1">
                 {item.price}
-                <TomanIcon sx={{ mb: -1, ml: 0.8 }} />
+                <TomanIcon sx={{ mb: -1.2, ml: 0.8 }} />
               </Typography>
               <Button variant="contained">افزودن به سبد</Button>
             </Stack>

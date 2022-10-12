@@ -3,18 +3,18 @@ import EditIcon from "@mui/icons-material/Edit";
 
 const PersonalInfo = () => {
   return (
-    <Grid item xs={6} sx={{ px: 3, py: 1 }}>
+    <Grid item xs={12} md={6} sx={{ px: { xs: 1, sm: 3 }, py: 1 }}>
       <Box
         sx={{
           bgcolor: "whitesmoke",
+          p: 3,
           "& .MuiTypography-body2": {
-            mx: 1,
+            mx: { xs: 0, sm: 1 },
           },
           "& > div": {
             alignItems: "center",
             flexDirection: "row-reverse",
           },
-          p: 3,
         }}
       >
         <Typography variant="h6" sx={{ pb: 2 }}>
@@ -28,7 +28,7 @@ const PersonalInfo = () => {
           <Typography variant="body1">نام خانوادگی:</Typography>
           <Typography variant="body2">داداش‌پور</Typography>
         </Stack>
-        <Stack>
+        <Stack sx={{ overflow: 'hidden' }}>
           <Typography variant="body1">ایمیل:</Typography>
           <Typography variant="body2">mmorteza.778899@gmail.com</Typography>
         </Stack>

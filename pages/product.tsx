@@ -1,23 +1,10 @@
 import { Box } from "@mui/material";
-import axios from "axios";
-import { FC } from "react";
+import Head from "next/head";
 import BasicBreadcrumbs from "../components/layout/BasicBreadcrumbs";
 import Main from "../components/routes/product/Main";
 import TabsDetails from "../components/routes/product/TabsDetails";
-import { getSingleProduct } from "../redux/features/singleProduct/action";
-import { wrapper } from "../redux/store";
 
-interface Iprops {
-  singleProduct: {
-    title: string,
-    gender: string,
-    price: string,
-    images: string[],
-    rating: number,
-  }
-}
-
-const ProductPage: FC<Iprops> = () => {
+const ProductPage = () => {
   const singleProduct = {
     title: "شلوار چرمی",
     gender: "women",
@@ -27,6 +14,9 @@ const ProductPage: FC<Iprops> = () => {
   }
   return (
     <>
+      <Head>
+        <title>صفحه محصول</title>
+      </Head>
       <BasicBreadcrumbs routerName="/صفحه محصول" />
       <Box sx={{ maxWidth: 1200, mx: "auto", my: 5 }}>
         <Main singleProduct={singleProduct} />
@@ -36,6 +26,7 @@ const ProductPage: FC<Iprops> = () => {
   );
 };
 
+// getServerSideProps is too slow in vercel, then i use static data
 // export const getServerSideProps = wrapper.getServerSideProps(
 //   (store) =>
 //     async ({ params }) => {

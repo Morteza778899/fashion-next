@@ -12,6 +12,7 @@ const Comment = () => {
       sx={{
         border: "1px solid #eeeeee",
         p: 3,
+        px: { xs: 2, sm: 3 }
       }}
     >
       <Typography variant="h5" mb={2}>
@@ -21,7 +22,7 @@ const Comment = () => {
         label="متن مورد نظر خود را اینجا تایپ کنید"
         variant="filled"
         fullWidth
-        rows={4}
+        rows={6}
         multiline
       />
     </Stack>

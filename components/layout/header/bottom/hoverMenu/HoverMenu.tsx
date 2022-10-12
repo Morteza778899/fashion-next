@@ -38,7 +38,7 @@ const HoverMenu: FC<Iprops> = ({ hoverControler, hoverStatus, whatHover }) => {
           container
           sx={{
             flexDirection: `${whatHover === "man" && "row-reverse"}`,
-            width: 1200,
+            width: { xs: 1, lg: 1200 },
             mx: "auto",
             px: 4,
             "& ul": {
@@ -94,7 +94,7 @@ const HoverMenu: FC<Iprops> = ({ hoverControler, hoverStatus, whatHover }) => {
                 },
               }}
             >
-              <Image src={whatHover === "woman" ? image1 : image2} />
+              <Image src={whatHover === "woman" ? image1 : image2} alt='' />
             </Box>
           </Grid>
 

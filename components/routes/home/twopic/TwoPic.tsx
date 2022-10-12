@@ -8,7 +8,7 @@ const TwoPic = () => {
   return (
     <Box
       sx={{
-        px: 8,
+        px: 1,
         "& .title-pic": {
           position: "absolute",
           top: 0,
@@ -38,16 +38,16 @@ const TwoPic = () => {
     >
       <Grid
         container
-        sx={{ height: 550, width: 1, maxWidth: 1200, mx: "auto", my: 5 }}
+        sx={{ width: 1, maxWidth: 1200, mx: "auto", my: 5 }}
       >
-        <Grid item xs={6} sx={{ p: 2, position: "relative" }}>
+        <Grid item xs={12} sm={6} sx={{ p: 2, position: "relative" }}>
           <Box sx={{ overflow: "hidden", width: 1, height: 1 }}>
             <Link href="#">
               <Box sx={{ width: 1, height: 1 }}>
-                <Image src={image1} />
+                <Image src={image1} alt='' />
               </Box>
               <Box className="title-pic">
-                <Typography variant="h5" fontWeight={900}>
+                <Typography variant="h6" fontWeight={900}>
                   کیف و کفش
                 </Typography>
                 <Typography variant="subtitle1">بهترین‌شو پیدا کن</Typography>
@@ -55,14 +55,14 @@ const TwoPic = () => {
             </Link>
           </Box>
         </Grid>
-        <Grid item xs={6} sx={{ p: 2, position: "relative" }}>
+        <Grid item xs={12} sm={6} sx={{ p: 2, position: "relative" }}>
           <Box sx={{ overflow: "hidden", width: 1, height: 1 }}>
             <Link href="#">
               <Box sx={{ width: 1, height: 1 }}>
-                <Image src={image2} />
+                <Image src={image2} alt='' />
               </Box>
               <Box className="title-pic">
-                <Typography variant="h5" fontWeight={900}>
+                <Typography variant="h6" fontWeight={900}>
                   لباس
                 </Typography>
                 <Typography variant="subtitle1">شیک و برند بپوش</Typography>

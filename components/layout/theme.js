@@ -1,6 +1,6 @@
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
-const themeColor = createTheme({
+let themeColor = createTheme({
   palette: {
     type: "light",
     primary: {
@@ -27,7 +27,7 @@ const themeColor = createTheme({
   },
   components: {},
 });
-
+themeColor = responsiveFontSizes(themeColor)
 export const theme = createTheme(themeColor, {
   components: {
     MuiStack: {

@@ -63,7 +63,7 @@ const CartMenu = () => {
         </Link>
         <Link href="/cart/checkout">
           <ListItemButton>
-            <Typography>صفحه خرید</Typography>
+            <Typography>صفحه پرداخت</Typography>
           </ListItemButton>
         </Link>
       </List>

@@ -12,6 +12,7 @@ const Order = () => {
         sx={{
           border: "1px solid #eeeeee",
           p: 3,
+          px: { xs: 2, sm: 3 }
         }}
       >
         <Typography variant="h6">کد تخفیف</Typography>
@@ -26,8 +27,9 @@ const Order = () => {
               py: 1.5,
             },
           }}
+          justifyContent='flex-end'
         >
-          <Button variant="contained">اعمال کد</Button>
+          <Button variant="contained" size="small" sx={{whiteSpace:'nowrap'}}>اعمال کد</Button>
           <TextField
             size="small"
             variant="filled"
@@ -37,7 +39,7 @@ const Order = () => {
       </Stack>
       <Stack justifyContent="space-between" px={2}>
         <Stack gap={1}>
-          <Typography variant="h6">{`390'000`}</Typography>
+          <Typography variant="h6">{`000'390`}</Typography>
           <TomanIcon fontSize="large" sx={{ mt: 0.5 }} />
         </Stack>
         <Typography variant="h6">مجموع</Typography>

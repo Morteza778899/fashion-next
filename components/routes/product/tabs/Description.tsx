@@ -29,7 +29,7 @@ const Description = () => {
         container
         sx={{
           "& .css-m69qwo-MuiStack-root": {
-            justifyContent: "center",
+            justifyContent: { xs: 'flex-start', sm: 'center' },
             my: 0.7,
           },
           "& svg": {
@@ -37,28 +37,28 @@ const Description = () => {
           },
         }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6}>
           <Stack>
+            <CheckIcon fontSize="small" />
             <Typography variant="body1">%100 پلی‌استر</Typography>
-            <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6}>
           <Stack>
+            <CheckIcon fontSize="small" />
             <Typography variant="body1">آستر با جنس ویسکوز</Typography>
-            <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6}>
           <Stack>
+            <CheckIcon fontSize="small" />
             <Typography variant="body1">غیر قابل خشکشویی</Typography>
-            <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6}>
           <Stack>
-            <Typography variant="body1">شست و شوی بدون کلر</Typography>
             <CheckIcon fontSize="small" />
+            <Typography variant="body1">شست و شوی بدون کلر</Typography>
           </Stack>
         </Grid>
       </Grid>

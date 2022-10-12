@@ -50,7 +50,7 @@ const Slider = () => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        style={{ width: "100%" }}
+        style={{ width: "100%", minHeight: '250px' }}
         modules={[Pagination, Autoplay, EffectFade, Navigation]}
         navigation={{ nextEl: "#swiper-forward", prevEl: "#swiper-back" }}
         pagination={{ clickable: true }}
@@ -61,8 +61,13 @@ const Slider = () => {
         }}
         onSlideChange={(Swiper) => setCurrentSlide(Swiper.realIndex)}
       >
-        {images.map((image,index) => (
-          <SwiperSlide key={index} style={{height:'fit-content'}}>
+        {images.map((image, index) => (
+          <SwiperSlide key={index}
+            style={{
+              backgroundImage: `url(${image.src})`,
+              backgroundSize: 'cover',
+              backgroundPosition:`${index===0?'left':'85%'} top`
+            }}>
             <IconButton
               sx={{
                 position: "absolute",
@@ -93,9 +98,6 @@ const Slider = () => {
                 overflow: "hidden",
               }}
             ></Box>
-            <Box sx={{ width: 1 }}>
-              <Image src={image} />
-            </Box>
             <IconButton
               sx={{
                 position: "absolute",

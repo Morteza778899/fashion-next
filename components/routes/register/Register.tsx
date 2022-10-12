@@ -20,10 +20,10 @@ const Register = () => {
         کنید.
       </Typography>
       <form>
-        <Stack direction="column" gap={3}>
-          <Stack width={1} gap={3}>
-            <TextField label="نام خانوداگی" variant="filled" fullWidth />
+        <Stack direction="column" gap={3} sx={{ mx: 4 }}>
+          <Stack width={1} gap={3} sx={{ flexDirection: { xs: 'column', sm: 'row-reverse' } }}>
             <TextField label="نام" variant="filled" fullWidth />
+            <TextField label="نام خانوداگی" variant="filled" fullWidth />
           </Stack>
           <TextField label="ایمیل" type="email" variant="filled" fullWidth />
           <TextField

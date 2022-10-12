@@ -51,25 +51,25 @@ const Details = () => {
           },
         }}
       >
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Stack>
             <Typography variant="body1">%100 پلی‌استر</Typography>
             <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Stack>
             <Typography variant="body1">آستر با جنس ویسکوز</Typography>
             <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Stack>
             <Typography variant="body1">غیر قابل خشکشویی</Typography>
             <CheckIcon fontSize="small" />
           </Stack>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <Stack>
             <Typography variant="body1">شست و شوی بدون کلر</Typography>
             <CheckIcon fontSize="small" />

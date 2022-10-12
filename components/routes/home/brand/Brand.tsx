@@ -1,4 +1,4 @@
-import { Box, Link, Stack } from "@mui/material";
+import { Box, Link, Stack, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import image1 from "../../../../public/image/brand-fashion-01.webp";
@@ -7,9 +7,12 @@ import image3 from "../../../../public/image/brand-fashion-03.webp";
 import image4 from "../../../../public/image/brand-fashion-04.webp";
 import image5 from "../../../../public/image/brand-fashion-05.webp";
 import image6 from "../../../../public/image/brand-fashion-06.webp";
-const images = [image1, image2, image3, image4, image5, image6];
+const images1 = [image1, image2, image3, image4, image5, image6];
+const images2 = [image1, image2, image3, image4];
 
 const Brand = () => {
+  const smWidth = useMediaQuery('(min-width:600px)')
+  const images = smWidth ? images1 : images2
   return (
     <Box
       sx={{
@@ -37,7 +40,7 @@ const Brand = () => {
       <Stack sx={{ width: 1 }} className="hover-container">
         {images.map((image, index) => (
           <Link href="#" key={index}>
-              <Image src={image}/>
+            <Image src={image} alt='' />
           </Link>
         ))}
       </Stack>

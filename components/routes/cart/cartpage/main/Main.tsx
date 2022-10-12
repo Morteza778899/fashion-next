@@ -28,37 +28,31 @@ const Main: FC<Iprops> = ({ item }) => {
       direction="row-reverse"
       alignItems="center"
     >
-      <Grid item xs={2}>
-        <Box sx={{p:1}}>
-          <Image src={item.images[0]} />
+      <Grid item xs={4} sm={2.5}>
+        <Box sx={{ p: { xs: 0, sm: 1 } }}>
+          <Image src={item.images[0]} alt='' />
         </Box>
       </Grid>
-      <Grid item xs={4}>
-        <Stack direction="column" px={4} sx={{ textAlign: "right" }}>
-          <Stack justifyContent="flex-end">
+      <Grid container spacing={{ xs: 1, sm: 0 }} xs={8} sm={9.5} direction='row-reverse'>
+        <Grid item xs={12} sm={4}>
+          <Typography textAlign={'right'} p={{xs:1,sm:2}} px={{xs:2}}>{item.title}</Typography>
+        </Grid>
+        <Grid item xs={12} sm={3.5}>
+          <Stack sx={{ justifyContent: { xs: 'flex-end', sm: 'center' }, px: 2 }}>
             <TomanIcon fontSize="large" sx={{ mt: 0.5, mr: -1 }} />
             <Typography variant="h6" sx={{ direction: "ltr" }}>
-              {item.price}
+              {`${Number(item.price.split("'")[0]) * count}'000`}
             </Typography>
           </Stack>
-          <Typography>{item.title}</Typography>
-        </Stack>
-      </Grid>
-      <Grid item xs={2}>
-        <Counter count={count} setCount={setCount} />
-      </Grid>
-      <Grid item xs={2}>
-        <Stack justifyContent="center">
-          <TomanIcon fontSize="large" sx={{ mt: 0.5, mr: -1 }} />
-          <Typography variant="h6" sx={{ direction: "ltr" }}>
-            {`${Number(item.price.split("'")[0]) * count}'000`}
-          </Typography>
-        </Stack>
-      </Grid>
-      <Grid item xs={2}>
-        <IconButton>
-          <DeleteForeverIcon color="secondary" />
-        </IconButton>
+        </Grid>
+        <Grid item xs={11} sm={3.5} >
+          <Counter count={count} setCount={setCount} />
+        </Grid>
+        <Grid item xs={1}>
+          <IconButton sx={{ mt: { xs: -11, sm: 0 } }}>
+            <DeleteForeverIcon color="secondary" />
+          </IconButton>
+        </Grid>
       </Grid>
     </Grid>
   );

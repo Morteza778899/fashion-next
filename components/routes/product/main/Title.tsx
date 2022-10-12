@@ -20,7 +20,7 @@ const Title: FC<Iprops> = ({ singleProduct }) => {
         gap={1}
         alignItems="center"
         sx={{
-          mx:2,
+          mx: { xs: 2, sm: 4 },
           "& p": {
             color: "gray",
             cursor: "pointer",
@@ -44,7 +44,7 @@ const Title: FC<Iprops> = ({ singleProduct }) => {
         />
         <Typography variant="body2">( 17دیدگاه )</Typography>
       </Stack>
-      <Typography variant="h4" mx={2}>{singleProduct.title}</Typography>
+      <Typography variant="h4" sx={{ mx: { xs: 2, sm: 4 } }}>{singleProduct.title}</Typography>
     </>
   );
 };

@@ -3,6 +3,7 @@ import "swiper/scss"; // core Swiper
 import "swiper/scss/navigation"; // Navigation module
 import "swiper/scss/pagination"; // Pagination module
 import "swiper/scss/effect-fade"; // effect-fade module
+import "swiper/scss/effect-creative"; // effect-creative module
 import 'react-toastify/dist/ReactToastify.css';
 
 // import '../public/styles/iconStyle.css'

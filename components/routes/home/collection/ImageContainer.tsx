@@ -1,4 +1,4 @@
-import { Box, IconButton, Link, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Link, Stack, Typography, useMediaQuery } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React, { FC, useState } from "react";
 import QuickView from "./quickView/QuickView";
@@ -16,6 +16,7 @@ interface Iprops {
 }
 
 const ImageContainer: FC<Iprops> = ({ item, status }) => {
+  const mdWidth = useMediaQuery('(min-width:900px)')
   const [hover, setHover] = useState(false);
   const [image, setImage] = useState(item.images[0]);
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ const ImageContainer: FC<Iprops> = ({ item, status }) => {
   };
   return (
     <Box
-    className='image-container'
+      className='image-container'
       sx={{
         position: "relative",
         overflow: "hidden",
@@ -42,7 +43,7 @@ const ImageContainer: FC<Iprops> = ({ item, status }) => {
             },
           }}
         >
-          <Image src={image} />
+          <Image src={image} alt='' />
         </Box>
       </Link>
       <Stack
@@ -75,19 +76,21 @@ const ImageContainer: FC<Iprops> = ({ item, status }) => {
         <IconButton color="default" sx={{ width: "fit-content" }}>
           <FavoriteBorderOutlinedIcon />
         </IconButton>
-        <IconButton
-          color="default"
-          onMouseOver={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          onClick={() => openHandler(true)}
-        >
-          {hover ? (
-            <Typography variant="subtitle2" sx={{ px: 1 }}>
-              تماشای سریع
-            </Typography>
-          ) : null}
-          <VisibilityIcon />
-        </IconButton>
+        {mdWidth && (
+          <IconButton
+            color="default"
+            onMouseOver={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            onClick={() => openHandler(true)}
+          >
+            {hover ? (
+              <Typography variant="subtitle2" sx={{ px: 1 }}>
+                تماشای سریع
+              </Typography>
+            ) : null}
+            <VisibilityIcon />
+          </IconButton>
+        )}
       </Stack>
       <Stack
         className="hoverImages"
@@ -118,7 +121,7 @@ const ImageContainer: FC<Iprops> = ({ item, status }) => {
             }}
             onMouseOver={() => setImage(image)}
           >
-            <Image src={image} />
+            <Image src={image} alt='' />
           </Box>
         ))}
       </Stack>

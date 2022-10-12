@@ -50,7 +50,7 @@ const rows: GridRowsProp = [
 ];
 
 const columns: GridColumns = [
-  { field: "id", headerName: "#", width: 50, valueGetter: getId },
+  { field: "id", headerName: "#", width: 1, valueGetter: getId },
   { field: "orderNumber", headerName: "شماره پیگیری", width: 120 },
   {
     field: "status",
@@ -155,6 +155,18 @@ export default function HistoryTable() {
         "& .MuiDataGrid-cell": {
           justifyContent: "center !important",
         },
+        // for scrollable -> Start
+        "& .MuiDataGrid-main ": {
+          width: 1,
+          overflow:'auto'
+        },
+        "& .MuiDataGrid-virtualScroller":{
+          overflow:'unset'
+        },
+        "& .MuiDataGrid-columnHeaders":{
+          overflow: 'unset'
+        },
+        // for scrollable -> End
       }}
     >
       <DataGrid

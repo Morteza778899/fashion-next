@@ -1,4 +1,4 @@
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import bg from "../../../public/image/bg-email.png";
 const Newsletter = () => {
   return (
@@ -13,8 +13,10 @@ const Newsletter = () => {
       }}
     >
       <Box sx={{ maxWidth: 1200, mx: "auto" }}>
-        <Stack
+        <Grid container
+          direction={'row-reverse'}
           sx={{
+            px: { xs: 2, sm: 4, md: 6, lg: 8 },
             "& .css-w1h58p-MuiInputBase-root-MuiInput-root": {
               color: "white",
               ":before": {
@@ -26,8 +28,8 @@ const Newsletter = () => {
                 },
               },
             },
-            "& input":{
-              px:2
+            "& input": {
+              px: 2
             },
             "& label": {
               color: "white",
@@ -36,31 +38,38 @@ const Newsletter = () => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Button
-            size="large"
-            variant="contained"
-            color="secondary"
-            sx={{ height: "fit-content" }}
-          >
-            عضــویـتــــــ
-          </Button>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            color="secondary"
-            sx={{ mx: 10,maxWidth:400 }}
-            placeholder='ایمیل خود را وارد کنید'
-            fullWidth
-          />
-          <Box sx={{ my: 8 }}>
-            <Typography variant="h2" fontWeight={900}>
-              خــبرنـامــه
-            </Typography>
-            <Typography variant="body1">
-              در خبرنامه ی هفتگی ما عضو شوید.
-            </Typography>
-          </Box>
-        </Stack>
+          <Grid item lg xs={12}>
+            <Box sx={{ mb: { xs: 2, sm: 0, lg: 8 }, mt: { xs: 4, lg: 8 },mx:2 }}>
+              <Typography variant="h2" fontWeight={900}>
+                خــبرنـامــه
+              </Typography>
+              <Typography variant="body1">
+                در خبرنامه ی هفتگی ما عضو شوید.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item lg={'auto'} sm={7} xs={12}>
+            <TextField
+              id="standard-basic"
+              variant="standard"
+              color="secondary"
+              sx={{ px: { xs: 3, sm: 0 }, pl: { sm: 3, lg: 10 }, minWidth: { lg: 500 }, }}
+              placeholder='ایمیل خود را وارد کنید'
+              fullWidth
+            />
+          </Grid>
+          <Grid item lg={'auto'} sm={5} xs={12}>
+            <Button
+              size="large"
+              variant="contained"
+              color="secondary"
+              sx={{ height: "fit-content", my: { xs: 2, sm: 5 } }}
+              fullWidth
+            >
+              عضــویـتــــــ
+            </Button>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );

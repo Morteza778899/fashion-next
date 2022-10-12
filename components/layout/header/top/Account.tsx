@@ -24,7 +24,7 @@ interface Iprops {
 
 const Account: FC<Iprops> = ({ open, openHandler }) => {
   return (
-    <Drawer anchor="right" open={open}>
+    <Drawer anchor="left" open={open}>
       <ClickAwayListener onClickAway={() => openHandler(false)}>
         <Box
           sx={{

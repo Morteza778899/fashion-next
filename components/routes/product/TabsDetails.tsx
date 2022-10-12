@@ -1,11 +1,13 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import Top from "./tabs/Top";
 import TabPanel from "./tabs/TabPanel";
+import TabPanelXS from "./tabs/TabPanelXS";
 const TabsDetails = () => {
+  const mdWidth = useMediaQuery('(min-width:900px)')
   return (
     <>
-      <Top />
-      <TabPanel/>
+      {mdWidth && <Top />}
+      {mdWidth ? <TabPanel /> : <TabPanelXS />}
     </>
   );
 };

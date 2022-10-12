@@ -6,7 +6,7 @@ const array = [woman[0], man[0]];
 
 const CartSummary = () => {
   return (
-    <Box>
+    <Box sx={{px: { xs: 2, sm: 3 }}}>
       <Grid
         container
         sx={{
@@ -17,10 +17,10 @@ const CartSummary = () => {
         }}
         direction="row-reverse"
       >
-        <Grid item xs={1}>
+        <Grid item xs={2} sm={1}>
           <Typography>عکس</Typography>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={5} sm={7}>
           <Typography textAlign="right" sx={{ px: 4 }}>
             نام
           </Typography>
@@ -28,7 +28,7 @@ const CartSummary = () => {
         <Grid item xs={2}>
           <Typography>تعداد</Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3} sm={2}>
           <Typography>قیمت</Typography>
         </Grid>
       </Grid>
@@ -39,29 +39,29 @@ const CartSummary = () => {
           container
           sx={{
             textAlign: "center",
-            borderBottom: "1px solid #f4f4f4",
+            borderTop: "1px solid #f4f4f4",
             py: 3,
           }}
           direction="row-reverse"
           alignItems="center"
         >
-          <Grid item xs={1}>
+          <Grid item xs={2} sm={1}>
             <Box>
-              <Image src={item.images[0]} />
+              <Image src={item.images[0]} alt=''/>
             </Box>
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={5} sm={7}>
             <Stack direction="column" px={4} sx={{ textAlign: "right" }}>
               <Stack justifyContent="flex-end">
-                <TomanIcon fontSize="large" sx={{ mt: 0.5, mr: -1 }} />
-                <Typography variant="h6" sx={{ direction: "ltr" }}>
+                <TomanIcon fontSize="medium" sx={{ mt: 0.5, mr: -1 }} />
+                <Typography sx={{ direction: "ltr" }}>
                   {item.price}
                 </Typography>
               </Stack>
-              <Typography>{item.title}</Typography>
+              <Typography variant="body2">{item.title}</Typography>
             </Stack>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={2} >
             <Typography
               sx={{
                 p: 1,
@@ -73,10 +73,10 @@ const CartSummary = () => {
               1
             </Typography>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={3} sm={2}>
             <Stack justifyContent="center">
-              <TomanIcon fontSize="large" sx={{ mt: 0.5, mr: -1 }} />
-              <Typography variant="h6" sx={{ direction: "ltr" }}>
+              <TomanIcon fontSize="medium" sx={{ mt: 0.5, mr: -1 }} />
+              <Typography sx={{ direction: "ltr" }}>
                 {item.price}
               </Typography>
             </Stack>

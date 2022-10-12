@@ -8,7 +8,7 @@ const TowPic = () => {
     <Box
       sx={{
         mt: 5,
-        mb: 10,
+        mb: { xs: 2, sm: 4, md: 6, lg: 8 },
         "& .title-pic": {
           position: "absolute",
           top: 0,
@@ -39,12 +39,13 @@ const TowPic = () => {
       <Grid container>
         <Grid
           item
-          xs={6}
+          xs={12}
+          sm={6}
           sx={{ p: 2, position: "relative", cursor: "pointer" }}
         >
           <Box sx={{ overflow: "hidden", width: 1, height: 1 }}>
             <Box sx={{ width: 1, height: 1 }}>
-              <Image src={imgTop} />
+              <Image src={imgTop} alt='' />
             </Box>
             <Box className="title-pic">
               <Typography variant="h6" fontWeight={900}>
@@ -58,12 +59,13 @@ const TowPic = () => {
         </Grid>
         <Grid
           item
-          xs={6}
+          xs={12}
+          sm={6}
           sx={{ p: 2, position: "relative", cursor: "pointer" }}
         >
           <Box sx={{ overflow: "hidden", width: 1, height: 1 }}>
             <Box sx={{ width: 1, height: 1 }}>
-              <Image src={imgBottom} />
+              <Image src={imgBottom} alt='' />
             </Box>
             <Box className="title-pic">
               <Typography variant="h6" fontWeight={900}>

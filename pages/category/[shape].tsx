@@ -14,6 +14,7 @@ import EmptyAnime from "../../components/animation/components/EmptyAnime";
 import BasicBreadcrumbs from "../../components/layout/BasicBreadcrumbs";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import Head from "next/head";
 
 interface Iprops {
   shape: string
@@ -39,14 +40,17 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
 
   return (
     <>
+      <Head>
+        <title>محصولات</title>
+      </Head>
       <BasicBreadcrumbs routerName={`/دسته بندی/${grid === 'vertical' ? 'دسته‌بندی عمودی' : grid === 'horizontal' ? 'دسته‌بندی لیستی' : grid === 'window' ? 'دسته‌بندی پنجره‌ای' : 'دسته‌بندی خالی'}`} />
       <Box sx={{ maxWidth: 1200, mx: "auto" }}>
         <TowPic />
-        <Stack direction="row-reverse" sx={{ mb: 8 }}>
+        <Grid container direction="row-reverse" sx={{ mb: 8, px: 2 }}>
           <Filter />
-          <Box
+          <Grid item xs={12} lg={9}
             sx={{
-              width: 1,
+              px: { xs: 1, sm: 2, md: 4, lg: 2 },
               "& .MuiSelect-select": {
                 pt: 1,
                 textAlign: "center",
@@ -58,7 +62,6 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
               <Grid
                 direction="row-reverse"
                 container
-                sx={{ p: 3 }}
                 justifyContent="flex-start"
               >
                 {fliterArray.map((obj, index) => (
@@ -69,7 +72,7 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
               <Grid
                 direction="row-reverse"
                 container
-                sx={{ p: 5, px: 8 }}
+                sx={{ pt: { xs: 2, sm: 3, md: 4, lg: 5 }, px: 0 }}
                 gap={5}
               >
                 {fliterArray.map((obj, index) => (
@@ -89,7 +92,7 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
               </Grid>
             ) : (
               grid === "empty" && (
-                <Stack direction="column" alignItems="center" pt={5}>
+                <Stack direction="column" alignItems="center" pt={5} pb={20}>
                   <EmptyAnime />
                   <Typography>
                     متاسفانه مطابق انتخاب شما هیچ محصولی وجود ندارد
@@ -100,8 +103,8 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
             {num < array.length && grid !== "empty" && (
               <LoadMore num={num} setNum={setNum} circleFill={circleFill} />
             )}
-          </Box>
-        </Stack>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );

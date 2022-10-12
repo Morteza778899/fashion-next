@@ -1,4 +1,4 @@
-import { Badge, Box, IconButton, Stack, Typography } from "@mui/material";
+import { Badge, Box, IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
 import { BasketIcon, LikeIcon, SearchIcon } from "../../../icon/myIcons";
 import HeaderMiddleMenu from "./HeaderMiddleMenu";
 import logo from "../../../../public/image/digikala.jpg";
@@ -6,18 +6,28 @@ import HoverMenu from "./hoverMenu/HoverMenu";
 import { FC, useState } from "react";
 import Image from "next/image";
 import SearchMenu from "./hoverMenu/SearchMenu";
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+import DrawerMenu from "./drawerMenu/DrawerMenu";
 
 interface Iprops {
   hiddenMenu: boolean;
   isVisible: boolean;
 }
 const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
+  const [open, setOpen] = useState(false);
   const [hoverStatus, setHoverStatus] = useState(false);
   const [whatHover, setWhatHover] = useState("");
   const [searchMenuStatus, setSearchMenuStatus] = useState(false);
+  const mdWidth = useMediaQuery('(min-width:900px)');
+  const smWidth = useMediaQuery('(min-width:600px)');
+
   const hoverControler = (x: boolean, y: string) => {
     setHoverStatus(x);
     setWhatHover(y);
+  };
+
+  const openHandler = (x: boolean) => {
+    setOpen(x);
   };
 
   return (
@@ -27,9 +37,8 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
         height: 70,
         position: `${hiddenMenu ? "fixed" : "relative"}`,
         opacity: `${(hiddenMenu && isVisible) || !hiddenMenu ? "1" : "0"}`,
-        visibility: `${
-          (hiddenMenu && isVisible) || !hiddenMenu ? "visible" : "hidden"
-        }`,
+        visibility: `${(hiddenMenu && isVisible) || !hiddenMenu ? "visible" : "hidden"
+          }`,
         bgcolor: "white",
         top: 0,
         zIndex: 1000,
@@ -39,15 +48,24 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
       <Stack
         justifyContent="space-between"
         alignItems="center"
-        sx={{ height: 1, maxWidth: 1200, mx: "auto", px: 4 }}
+        sx={{ height: 1, maxWidth: 1200, mx: "auto", px: { xs: 1, sm: 4 } }}
       >
-        <Image src={logo} width={150} height={60} />
+        {!mdWidth && (
+          <Box sx={{ width: 'fit-content' }}>
+            <DensityMediumIcon onClick={() => setOpen(true)} sx={{ cursor: 'pointer' }} />
+            <DrawerMenu openHandler={openHandler} open={open} />
+          </Box>
+        )}
 
-        <HeaderMiddleMenu hoverControler={hoverControler} />
+        <Box flexGrow={mdWidth ? 0 : 1}>
+          <Image src={logo} width={150} height={55} alt='logo website' />
+        </Box>
+
+        {mdWidth && <HeaderMiddleMenu hoverControler={hoverControler} />}
 
         <Stack>
           <IconButton color="default" onClick={() => setSearchMenuStatus(true)}>
-            <SearchIcon fontSize="large" />
+            <SearchIcon fontSize={`${smWidth ? 'large' : 'medium'}`} />
           </IconButton>
           <IconButton color="default">
             <Badge
@@ -63,10 +81,11 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
                   bottom: 4,
                   left: 3,
                   fontFamily: "monospace",
+                  scale: `${smWidth ? '1' : '.8'}`
                 },
               }}
             >
-              <LikeIcon fontSize="large" />
+              <LikeIcon fontSize={`${smWidth ? 'large' : 'medium'}`} />
             </Badge>
           </IconButton>
           <IconButton color="default">
@@ -83,12 +102,13 @@ const HeaderBotDuplicate: FC<Iprops> = ({ hiddenMenu, isVisible }) => {
                   bottom: 4,
                   left: 3,
                   fontFamily: "monospace",
+                  scale: `${smWidth ? '1' : '.8'}`
                 },
               }}
             >
-              <BasketIcon fontSize="large" />
+              <BasketIcon fontSize={`${smWidth ? 'large' : 'medium'}`} />
             </Badge>
-            <Typography sx={{ px: 1 }}>$34.99</Typography>
+            {mdWidth && <Typography sx={{ px: 1 }}>$34.99</Typography>}
           </IconButton>
         </Stack>
       </Stack>

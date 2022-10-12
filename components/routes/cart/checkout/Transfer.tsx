@@ -14,6 +14,7 @@ const Transfer = () => {
       sx={{
         border: "1px solid #eeeeee",
         p: 3,
+        px: { xs: 2, sm: 3 }
       }}
     >
       <Typography variant="h5" >
@@ -21,19 +22,22 @@ const Transfer = () => {
       </Typography>
       <RadioGroup defaultValue="1" name="radio-buttons-group" dir="rtl">
         <FormControlLabel
+          sx={{ m: 0 }}
           value="1"
           control={<Radio />}
-          label="تحویل استاندارد 2.99 دلار (3-5 روز)"
+          label="استاندارد 2.99 دلار (3-5 روز)"
         />
         <FormControlLabel
+          sx={{ m: 0 }}
           value="2"
           control={<Radio />}
-          label="تحویل سریع 10.99 دلار (1-2 روز)"
+          label="سریع 10.99 دلار (1-2 روز)"
         />
         <FormControlLabel
+          sx={{ m: 0 }}
           value="3"
           control={<Radio />}
-          label="همان روز 20.00 دلار (تحویل عصر)"
+          label="روازنه 20.00 دلار (تحویل عصر)"
         />
       </RadioGroup>
     </Stack>

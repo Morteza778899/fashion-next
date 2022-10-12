@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import { useState } from "react";
@@ -10,25 +10,24 @@ const Statis = () => {
   return (
     <Box sx={{ backgroundColor: "#fafafa" }}>
       <Box sx={{ maxWidth: 1200, mx: "auto", py: 6 }}>
-        <Stack
+        <Grid container
           justifyContent="space-around"
           sx={{
             textAlign: "center",
+            // flexDirection: { xs: 'column', sm: 'row' },
             "& h5": {
-              mt: -1,
-              mb: 3,
+              m: {xs:1,sm:2},
             },
           }}
-          gap={10}
         >
-          <Stack direction="column">
+          <Grid sm={4} direction="column" p={2}>
             <VisibilitySensor
               offset={{ bottom: -70 }}
               onChange={(isVisible: boolean) =>
                 isVisible && setVisible(isVisible)
               }
             >
-              <Typography variant="h1" fontWeight={900} color="primary">
+              <Typography variant="h2" fontWeight={900} color="primary">
                 {visible ? <CountUp start={0} end={100} duration={2} /> : "0"}%
               </Typography>
             </VisibilitySensor>
@@ -36,17 +35,17 @@ const Statis = () => {
             <Typography variant="body1">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
               استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-              ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+             و برای شرایط فعلی تکنولوژی مورد نیاز
             </Typography>
-          </Stack>
-          <Stack direction="column">
+          </Grid>
+          <Grid sm={4} direction="column" p={2}>
             <VisibilitySensor
               offset={{ bottom: -70 }}
               onChange={(isVisible: boolean) =>
                 isVisible && setVisible(isVisible)
               }
             >
-              <Typography variant="h1" fontWeight={900} color="primary">
+              <Typography variant="h2" fontWeight={900} color="primary">
                 {visible ? <CountUp start={0} end={2617} duration={2} /> : "0"}
               </Typography>
             </VisibilitySensor>
@@ -54,17 +53,17 @@ const Statis = () => {
             <Typography variant="body1">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
               استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-              ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+              و برای شرایط فعلی تکنولوژی مورد نیاز
             </Typography>
-          </Stack>
-          <Stack direction="column">
+          </Grid>
+          <Grid sm={4} direction="column" p={2}>
             <VisibilitySensor
               offset={{ bottom: -70 }}
               onChange={(isVisible: boolean) =>
                 isVisible && setVisible(isVisible)
               }
             >
-              <Typography variant="h1" fontWeight={900} color="primary">
+              <Typography variant="h2" fontWeight={900} color="primary">
                 {visible ? <CountUp start={0} end={673} duration={2} /> : "0"}
               </Typography>
             </VisibilitySensor>
@@ -72,10 +71,10 @@ const Statis = () => {
             <Typography variant="body1">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
               استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-              ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+               برای شرایط فعلی تکنولوژی مورد نیاز
             </Typography>
-          </Stack>
-        </Stack>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );

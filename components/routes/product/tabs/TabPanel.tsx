@@ -95,7 +95,7 @@ export default function BasicTabs() {
 
   return (
     <Box sx={{
-      maxWidth: 1200, mx: 'auto', mb: 10, "& .MuiTab-root": {
+      maxWidth: 1200, mx:{xs:4,lg:'auto'}, mb: 8, "& .MuiTab-root": {
         ":after": {
           position: "absolute",
           bottom: "0",

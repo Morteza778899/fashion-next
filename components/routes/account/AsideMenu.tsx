@@ -29,11 +29,12 @@ const AsideMenu: FC<Iprops> = ({ children }) => {
 
   return (
     <Box sx={{ maxWidth: 1200, mx: "auto", my: 6 }}>
-      <Grid container direction="row-reverse">
+      <Grid container direction="row-reverse" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Grid
           item
           sx={{
-            pl: 3,
+            pl: {xs:0,md:3},
+            pb: {xs:4,md:0},
             "& .MuiToggleButton-root": {
               justifyContent: "flex-start",
             },
@@ -45,7 +46,8 @@ const AsideMenu: FC<Iprops> = ({ children }) => {
               },
             },
           }}
-          xs={3}
+          xs={12}
+          md={3}
         >
           <ToggleButtonGroup
             orientation="vertical"

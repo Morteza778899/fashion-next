@@ -10,16 +10,16 @@ const Custom404Page = () => {
   };
   return (
     <>
-    <Head>
-      <title>صفحه 404</title>
-    </Head>
-    <Stack direction="column" sx={{ alignItems: "center", my: 8 }}>
-      <Anime404 />
-      <Typography variant="h5">صفحه مورد نظر پیدا نشد</Typography>
-      <Button variant="contained" sx={{ my: 3 }} onClick={clickHandler}>
-        برگشت به صفحه اصلی
-      </Button>
-    </Stack>
+      <Head>
+        <title>صفحه 404</title>
+      </Head>
+      <Stack direction="column" sx={{ alignItems: "center", my: { xs: 4, sm: 6, md: 8 } }}>
+        <Anime404 />
+        <Typography variant="h5">صفحه مورد نظر پیدا نشد</Typography>
+        <Button variant="contained" sx={{ my: 3 }} onClick={clickHandler}>
+          برگشت به صفحه اصلی
+        </Button>
+      </Stack>
     </>
   );
 };

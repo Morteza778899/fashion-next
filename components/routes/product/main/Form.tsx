@@ -8,6 +8,7 @@ import {
   ToggleButtonGroup,
   Tooltip,
   Typography,
+  useMediaQuery,
   Zoom,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
@@ -36,6 +37,7 @@ const Form: FC<Iprops> = ({
   redImages,
 }) => {
   const [num, setNum] = useState(1);
+  const smWidth = useMediaQuery('(min-width:600px)')
   return (
     <>
       <Stack alignItems="center" gap={4} sx={{ m: 2, my: 4 }}>
@@ -65,7 +67,7 @@ const Form: FC<Iprops> = ({
                 selected={color === "biege" ? true : false}
               >
                 <Box sx={{ width: 50, cursor: "pointer" }}>
-                  <Image src={biegeImages[0]} />
+                  <Image src={biegeImages[0]} alt='' />
                 </Box>
               </ToggleButton>
             </Tooltip>
@@ -75,7 +77,7 @@ const Form: FC<Iprops> = ({
                 selected={color === "black" ? true : false}
               >
                 <Box sx={{ width: 50, cursor: "pointer" }}>
-                  <Image src={blackImages[0]} />
+                  <Image src={blackImages[0]} alt='' />
                 </Box>
               </ToggleButton>
             </Tooltip>
@@ -85,7 +87,7 @@ const Form: FC<Iprops> = ({
                 selected={color === "red" ? true : false}
               >
                 <Box sx={{ width: 50, cursor: "pointer" }}>
-                  <Image src={redImages[0]} />
+                  <Image src={redImages[0]} alt='' />
                 </Box>
               </ToggleButton>
             </Tooltip>
@@ -125,9 +127,9 @@ const Form: FC<Iprops> = ({
         </Box>
       </Stack>
 
-      <Stack alignItems="center" gap={2} sx={{ m: 2, my: 4 }}>
+      <Stack alignItems="center" gap={{ xs: 1, sm: 2 }} sx={{ m: 1, my: 4 }}>
         <Stack sx={{ bgcolor: "#f7f7f8" }} alignItems="center">
-          <Typography variant="h5" sx={{ height: "fit-content", px: 3 }}>
+          <Typography variant="h5" sx={{ height: "fit-content", px: { xs: 1.5, sm: 3 } }}>
             {num}
           </Typography>
           <Stack
@@ -150,9 +152,9 @@ const Form: FC<Iprops> = ({
           </Stack>
         </Stack>
 
-        <Box flexGrow={1} alignSelf="stretch" sx={{ width: 1 }}>
-          <Button variant="contained" sx={{ width: 1, height: 1 }}>
-            <Typography variant="h6">افزودن به سبد خرید</Typography>
+        <Box flexGrow={1} alignSelf="stretch">
+          <Button variant="contained" size={`${smWidth ? 'medium' : 'small'}`} sx={{ width: 1, height: 1 }}>
+            <Typography variant='h6'>افزودن به سبد خرید</Typography>
           </Button>
         </Box>
         <Box

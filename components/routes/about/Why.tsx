@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import LocalMallTwoToneIcon from "@mui/icons-material/LocalMallTwoTone";
 import AlarmAddTwoToneIcon from "@mui/icons-material/AlarmAddTwoTone";
 import LocalShippingTwoToneIcon from "@mui/icons-material/LocalShippingTwoTone";
@@ -10,7 +10,7 @@ const Why = () => {
       <Typography variant="h4" textAlign="center">
         چرا از ما خرید کنید
       </Typography>
-      <Stack
+      <Grid container
         sx={{
           "& svg": {
             width: 80,
@@ -29,29 +29,29 @@ const Why = () => {
         }}
         justifyContent="space-around"
       >
-        <Stack>
+        <Grid item md={2.4}>
           <LocalMallTwoToneIcon />
           <Typography variant="body1">فروشگاهی برای تمام نیاز‌های شما</Typography>
-        </Stack>
-        <Stack>
+        </Grid>
+        <Grid item md={2.4}>
           <AlarmAddTwoToneIcon />
           <Typography variant="body1">
             ارسال در همان روز برای کلیه سفارشات
           </Typography>
-        </Stack>
-        <Stack>
+        </Grid>
+        <Grid item md={2.4}>
           <LocalShippingTwoToneIcon />
           <Typography variant="body1">تحویل رایگان در تمام سفارشات</Typography>
-        </Stack>
-        <Stack>
+        </Grid>
+        <Grid item md={2.4}>
           <ContactSupportTwoToneIcon />
           <Typography variant="body1">مشاوره حرفه ای و پشتیبانی عالی</Typography>
-        </Stack>
-        <Stack>
+        </Grid>
+        <Grid item md={2.4}>
           <LocalOfferTwoToneIcon />
           <Typography variant="body1">جشنواره های متنوع برای تخفیف</Typography>
-        </Stack>
-      </Stack>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

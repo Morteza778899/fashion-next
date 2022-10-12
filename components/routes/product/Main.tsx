@@ -31,34 +31,18 @@ interface Iprops {
   }
 }
 
-const Main:FC<Iprops> = ({singleProduct}) => {
+const Main: FC<Iprops> = ({ singleProduct }) => {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("biege");
 
   return (
     <>
       <Title singleProduct={singleProduct} />
-      <Grid container>
-        <Grid item xs={7}>
-          <Box sx={{ m: 2 }}>
-            <Details />
-            <Info />
-            <Form
-              color={color}
-              size={size}
-              setSize={setSize}
-              setColor={setColor}
-              biegeImages={biegeImages}
-              blackImages={blackImages}
-              redImages={redImages}
-            />
-            <Modals />
-          </Box>
-        </Grid>
-        <Grid item xs={5}>
+      <Grid container direction={'row-reverse'}>
+        <Grid item xs={12} md={5}>
           <Box
             sx={{
-              m: 2,
+              m: {xs:2,sm:4},
               "& .MuiIconButton-root": {
                 position: "absolute",
                 zIndex: 20,
@@ -74,6 +58,22 @@ const Main:FC<Iprops> = ({singleProduct}) => {
             }}
           >
             <Slider allImage={allImage} slidesPerView={1} />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={7}>
+          <Box sx={{ m: 2 }}>
+            <Details />
+            <Info />
+            <Form
+              color={color}
+              size={size}
+              setSize={setSize}
+              setColor={setColor}
+              biegeImages={biegeImages}
+              blackImages={blackImages}
+              redImages={redImages}
+            />
+            <Modals />
           </Box>
         </Grid>
       </Grid>

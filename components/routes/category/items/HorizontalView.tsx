@@ -5,6 +5,7 @@ import {
   Rating,
   Stack,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { FC, useState } from "react";
@@ -24,6 +25,7 @@ interface Iprops {
 }
 
 const HorizontalView: FC<Iprops> = ({ item }) => {
+  const mdWidth = useMediaQuery('(min-width:900px)')
   const [open, setOpen] = useState(false);
   const openHandler = (x: boolean) => {
     setOpen(x);
@@ -35,97 +37,112 @@ const HorizontalView: FC<Iprops> = ({ item }) => {
         direction="row-reverse"
         className="animate__animated animate__fadeIn"
       >
-        <Grid item sx={{ width: 200 }}>
+        <Grid item sx={{ width: {xs:150,sm:200} }}>
           <ImageContainer item={item} status="horizontal" />
         </Grid>
         <Grid item xs>
-          <Stack alignItems="center" sx={{ height: 1 }}>
-            <Stack direction="column">
-              <Stack>
-                <Typography variant="h6" sx={{ direction: "ltr" }}>
-                  {item.price}
-                </Typography>
-                <TomanIcon fontSize="large" sx={{ mt: 0.5, ml: 0.8 }} />
-              </Stack>
-              <Stack
-                className="hoverIcon"
-                gap={3}
-                sx={{
-                  "& .MuiIconButton-root": {
-                    boxShadow: "0 0px 4px rgb(0 0 0 / 20%)",
-                    p: 0.5,
-                    bgcolor: "white !important",
-                    ":hover": {
-                      "& svg": {
-                        transform: "rotateY(180deg)",
-                      },
-                    },
-                    "& svg": {
-                      transition: ".2s all",
-                    },
-                  },
-                }}
-              >
-                <IconButton color="default">
-                  <FavoriteBorderOutlinedIcon />
-                </IconButton>
-                <IconButton color="default" onClick={() => openHandler(true)}>
-                  <VisibilityIcon />
-                </IconButton>
-                <QuickView open={open} openHandler={openHandler} />
-              </Stack>
-            </Stack>
-            <Stack
-              direction="column"
-              alignItems="flex-end"
-              gap={0.5}
+          <Grid container direction={'row-reverse'} alignItems="center" sx={{ height: 1 }}>
+            <Grid xs={12} md item
               sx={{
-                px: 4,
+                pr: {xs:2,md:4},
               }}
             >
-              <Rating
-                name="half-rating"
-                readOnly
-                defaultValue={item.rating}
-                precision={0.5}
-                sx={{
-                  "& label": {
-                    display: "unset",
-                  },
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{ color: "gray", fontSize: "0.8rem" }}
+              <Stack
+                direction="column"
+                alignItems="flex-end"
+                gap={0.5}
               >
-                فروشنده یا برند کالا
-              </Typography>
-              <Typography variant="h6">{item.title}</Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  my: 2,
-                  // limit line
-                  display: "-webkit-box",
-                  lineClamp: "4",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  lineHeight: "1.5em",
-                  maxHeight: "6em",
-                  WebkitLineClamp: "4",
-                  "-webkit-box-orient": "vertical",
-                }}
-              >
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله
-                در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-                نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-              </Typography>
-              <Button variant="contained" sx={{ width: "fit-content" }}>
-                افزودن به سبد خرید
-              </Button>
-            </Stack>
-          </Stack>
+                <Rating
+                  name="half-rating"
+                  readOnly
+                  defaultValue={item.rating}
+                  precision={0.5}
+                  sx={{
+                    "& label": {
+                      display: "unset",
+                    },
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{ color: "gray", fontSize: "0.8rem" }}
+                >
+                  فروشنده یا برند کالا
+                </Typography>
+                <Typography variant="h6">{item.title}</Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    my: 2,
+                    // limit line
+                    display: "-webkit-box",
+                    lineClamp: "4",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    lineHeight: "1.5em",
+                    maxHeight: "6em",
+                    WebkitLineClamp: "4",
+                    "-webkit-box-orient": "vertical",
+                  }}
+                >
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                  استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله
+                  در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+                  نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                </Typography>
+                <Button variant="contained" sx={{ width: "fit-content" }}>
+                  افزودن به سبد خرید
+                </Button>
+              </Stack>
+            </Grid>
+            <Grid xs={12} md={'auto'} item >
+              <Stack sx={{
+                flexDirection: { xs: 'row-reverse', md: 'column' },
+                justifyContent: 'space-between',
+                px: {xs:0,md:2},
+                py: 1,
+              }}>
+                <Stack>
+                  <Typography variant="h6" sx={{ direction: "ltr" }}>
+                    {item.price}
+                  </Typography>
+                  <TomanIcon fontSize="large" sx={{ mt: 0.5, ml: 0.8 }} />
+                </Stack>
+                <Stack
+                  className="hoverIcon"
+                  gap={3}
+                  sx={{
+                    "& .MuiIconButton-root": {
+                      boxShadow: "0 0px 4px rgb(0 0 0 / 20%)",
+                      p: 0.5,
+                      bgcolor: "white !important",
+                      height: 'fit-content',
+                      ":hover": {
+                        "& svg": {
+                          transform: "rotateY(180deg)",
+                        },
+                      },
+                      "& svg": {
+                        transition: ".2s all",
+                      },
+                    },
+                  }}
+                >
+                  <IconButton color="default">
+                    <FavoriteBorderOutlinedIcon />
+                  </IconButton>
+                  {mdWidth && (
+                    <>
+                      <IconButton color="default" onClick={() => openHandler(true)}>
+                        <VisibilityIcon />
+                      </IconButton>
+                      <QuickView open={open} openHandler={openHandler} />
+                    </>
+                  )}
+                </Stack>
+              </Stack>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

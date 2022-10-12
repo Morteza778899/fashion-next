@@ -1,4 +1,4 @@
-import { Box, ClickAwayListener, Stack, TextField } from "@mui/material";
+import { Box, ClickAwayListener, Stack, TextField, useMediaQuery } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Dispatch, FC, SetStateAction } from "react";
 
@@ -7,6 +7,7 @@ interface Iprops {
 }
 
 const SearchMenu: FC<Iprops> = ({ setSearchMenuStatus }) => {
+  const smWidth = useMediaQuery('(min-width:600px)');
   return (
     <Box
       sx={{
@@ -28,8 +29,8 @@ const SearchMenu: FC<Iprops> = ({ setSearchMenuStatus }) => {
           },
         },
         "& svg": {
-          width: 50,
-          height: 50,
+          width: smWidth ? 50 : 30,
+          height: smWidth ? 50 : 30,
         },
       }}
     >
@@ -50,7 +51,7 @@ const SearchMenu: FC<Iprops> = ({ setSearchMenuStatus }) => {
           />
           <CloseIcon
             sx={{
-              mx: 6,
+              mx: smWidth ? 6 : 2,
               cursor: "pointer",
               ":hover": { color: "primary.main" },
             }}

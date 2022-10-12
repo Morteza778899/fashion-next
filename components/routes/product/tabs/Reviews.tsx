@@ -5,7 +5,7 @@ const Reviews = () => {
         <Stack
             direction="column"
             divider={<Divider orientation="horizontal" sx={{ width: '70%', mx: 'auto' }} flexItem />}
-            px={2}
+            px={1}
             gap={3}
         >
             {
@@ -36,7 +36,7 @@ const Reviews = () => {
                             <Typography
                                 variant="body2"
                                 sx={{
-                                    color: "gray", ml: 4, fontSize: "0.7rem", ":hover": {
+                                    color: "gray", ml: { xs: 0, sm: 4 }, fontSize: "0.7rem", ":hover": {
                                         cursor: 'pointer',
                                         textDecoration: 'underline'
                                     }
