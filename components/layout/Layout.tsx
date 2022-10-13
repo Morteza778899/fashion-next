@@ -22,6 +22,17 @@ const Layout: FC<Iprops> = ({ children }) => {
   const allProduct = useSelector((state: RootState) => state.allProduct)
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
+    if (!allProduct.loading) {
+      if (typeof window !== 'undefined') {
+        const loader = document.getElementById('globalLoader');
+        const body = document.getElementById('body');
+        if (loader) {
+          body!.style.height = 'unset';
+          body!.style.overflow = 'unset';
+          loader.style.opacity = '0';
+        }
+      }
+    }
     if (allProduct.error.status) {
       toast.error(<Typography>{allProduct.error.message}</Typography>)
     }
@@ -53,22 +64,8 @@ const Layout: FC<Iprops> = ({ children }) => {
   return (
     <Box sx={{
       position: 'relative',
-      height: allProduct.loading ? '100vh' : 'unset',
-      overflow: allProduct.loading ? 'hidden' : 'unset'
+
     }}>
-      {allProduct.loading !== false && (
-        <Stack justifyContent={'center'} alignItems={'center'}
-          sx={{
-            position: 'absolute',
-            top: 0, left: 0,
-            width: 1,
-            bgcolor: 'white',
-            height: '100vh',
-            zIndex: 100000
-          }}>
-          <BeatLoader />
-        </Stack>
-      )}
       <ThemeProvider theme={theme}>
         <Box sx={{ minHeight: '100vh' }}>
           <HeaderTop />

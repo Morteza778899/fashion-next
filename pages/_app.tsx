@@ -11,11 +11,13 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/layout/Layout'
 import { wrapper } from '../redux/store';
 import { Provider } from 'react-redux';
+import { getProduct } from '../redux/features/product/action';
 
 function MyApp({ Component, ...rest }: AppProps) {
   // if you are in react, you dont need to use wrapper. you can just use provider tag 
   // this is for nextjs
   const { store, props } = wrapper.useWrappedStore(rest);
+  store.dispatch(getProduct())
   return (
     <Provider store={store}>
       <Layout>

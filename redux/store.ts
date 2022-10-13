@@ -12,7 +12,6 @@ const store = configureStore({
         footerVisibility:footerVisibilitySlice
     }
 })
-store.dispatch(getProduct())
 
 // this is for nextjs.
 // in react, you can just export store
