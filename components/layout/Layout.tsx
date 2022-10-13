@@ -51,11 +51,24 @@ const Layout: FC<Iprops> = ({ children }) => {
   }
 
   return (
-    allProduct.loading ? (
-      <Stack justifyContent={'center'} alignItems={'center'} sx={{ width: 1, height: '100vh' }}>
-        <BeatLoader />
-      </Stack>
-    ) : (
+    <Box sx={{
+      position: 'relative',
+      height: allProduct.loading ? '100vh' : 'unset',
+      overflow: allProduct.loading ? 'hidden' : 'unset'
+    }}>
+      {allProduct.loading !== false && (
+        <Stack justifyContent={'center'} alignItems={'center'}
+          sx={{
+            position: 'absolute',
+            top: 0, left: 0,
+            width: 1,
+            bgcolor: 'white',
+            height: '100vh',
+            zIndex: 100000
+          }}>
+          <BeatLoader />
+        </Stack>
+      )}
       <ThemeProvider theme={theme}>
         <Box sx={{ minHeight: '100vh' }}>
           <HeaderTop />
@@ -83,7 +96,7 @@ const Layout: FC<Iprops> = ({ children }) => {
           pauseOnHover
         />
       </ThemeProvider>
-    )
+    </Box>
   );
 };
 export default Layout;

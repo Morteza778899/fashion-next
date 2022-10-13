@@ -43,7 +43,7 @@ const ImageContainer: FC<Iprops> = ({ item, status }) => {
             },
           }}
         >
-          <Image src={image} alt='' />
+          <Image src={image} alt='' placeholder="blur"/>
         </Box>
       </Link>
       <Stack
