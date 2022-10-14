@@ -18,9 +18,9 @@ const DrawerMenu: FC<Iprops> = ({ open, openHandler }) => {
     const [swiper, setSwiper] = useState<SwiperClass>();
 
     return (
-        <Drawer anchor="right" open={open}>
+        <Drawer anchor="right" open={open} sx={{ "& .MuiPaper-root": { width: 1, maxWidth: 350 } }}>
             <ClickAwayListener onClickAway={() => openHandler(false)}>
-                <Box sx={{ width: 350, height: 1, p: 2, position: 'relative' }}>
+                <Box sx={{ width: 1, height: 1, p: 2, position: 'relative' }}>
                     <CloseIcon onClick={() => openHandler(false)}
                         sx={{ position: 'absolute', left: 0, top: 0, m: 4, mt: 3, cursor: 'pointer' }} />
                     <Stack direction={'column'} mt={4} divider={<Divider orientation="horizontal" flexItem />}>

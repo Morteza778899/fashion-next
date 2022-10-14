@@ -37,20 +37,20 @@ const HorizontalView: FC<Iprops> = ({ item }) => {
         direction="row-reverse"
         className="animate__animated animate__fadeIn"
       >
-        <Grid item sx={{ width: {xs:150,sm:200} }}>
+        <Grid item sx={{ width: { xs: 150, sm: 200 } }}>
           <ImageContainer item={item} status="horizontal" />
         </Grid>
         <Grid item xs>
-          <Grid container direction={'row-reverse'} alignItems="center" sx={{ height: 1 }}>
+          <Grid container direction={'row-reverse'} spacing={1} alignItems="center" py={{ xs: 4, sm: 0 }}>
             <Grid xs={12} md item
               sx={{
-                pr: {xs:2,md:4},
+                pr: { xs: 2, md: 4 },
               }}
             >
               <Stack
                 direction="column"
                 alignItems="flex-end"
-                gap={0.5}
+                gap={{xs:1,sm:.5}}
               >
                 <Rating
                   name="half-rating"
@@ -75,7 +75,7 @@ const HorizontalView: FC<Iprops> = ({ item }) => {
                   sx={{
                     my: 2,
                     // limit line
-                    display: "-webkit-box",
+                    display: { xs: 'none', sm: "-webkit-box" },
                     lineClamp: "4",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -90,7 +90,7 @@ const HorizontalView: FC<Iprops> = ({ item }) => {
                   در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
                   نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                 </Typography>
-                <Button variant="contained" sx={{ width: "fit-content" }}>
+                <Button variant="contained" size="small" sx={{ width: "fit-content" }}>
                   افزودن به سبد خرید
                 </Button>
               </Stack>
@@ -99,7 +99,7 @@ const HorizontalView: FC<Iprops> = ({ item }) => {
               <Stack sx={{
                 flexDirection: { xs: 'row-reverse', md: 'column' },
                 justifyContent: 'space-between',
-                px: {xs:0,md:2},
+                px: { xs: 0, md: 2 },
                 py: 1,
               }}>
                 <Stack>

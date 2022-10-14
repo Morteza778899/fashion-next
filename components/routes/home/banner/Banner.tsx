@@ -41,7 +41,7 @@ const Banner = () => {
         >
           <Stack direction="column" alignItems="center" gap={2} sx={{ p: { xs: 2, sm: 4, md: 7, lg: 10 } }}>
             <Typography variant={`${mdWidth ? 'h4' : 'h5'}`} fontWeight={900} sx={{ textShadow: '0px 0px 5px white' }}>
-              آرامش خاطر در خرید را با تجربه کنید
+              خرید مطمئن را با تجربه کنید
             </Typography>
             <Typography variant="h6" sx={{ textShadow: '0px 0px 5px white' }}>قاب فروشگاهی پیشرفته</Typography>
             <Button variant="contained" size={`${smWidth ? 'medium' : 'small'}`} >

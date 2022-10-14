@@ -94,7 +94,7 @@ const CategoryPage: FC<Iprops> = ({ shape }) => {
               grid === "empty" && (
                 <Stack direction="column" alignItems="center" pt={5} pb={20}>
                   <EmptyAnime />
-                  <Typography>
+                  <Typography textAlign={'center'}>
                     متاسفانه مطابق انتخاب شما هیچ محصولی وجود ندارد
                   </Typography>
                 </Stack>

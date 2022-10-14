@@ -24,14 +24,14 @@ interface Iprops {
 
 const Account: FC<Iprops> = ({ open, openHandler }) => {
   return (
-    <Drawer anchor="left" open={open}>
+    <Drawer anchor="left" open={open} sx={{ "& .MuiPaper-root": { width: 1, maxWidth: 450 } }}>
       <ClickAwayListener onClickAway={() => openHandler(false)}>
         <Box
           sx={{
-            width: 480,
+            width: 1,
             height: 1,
             p: 5,
-            px: 8,
+            px: { xs: 2, sm: 4, md: 6, lg: 8 },
             "& p": {
               fontSize: "1.1rem",
             },

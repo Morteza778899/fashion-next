@@ -94,7 +94,6 @@ const Slider = () => {
                 position: "absolute",
                 background:
                   "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%)",
-                zIndex: 2,
                 overflow: "hidden",
               }}
             ></Box>
