@@ -29,6 +29,7 @@ const Layout: FC<Iprops> = ({ children }) => {
         if (loader) {
           body!.style.height = 'unset';
           body!.style.overflow = 'unset';
+          loader.style.zIndex = '-1';
           loader.style.opacity = '0';
         }
       }
